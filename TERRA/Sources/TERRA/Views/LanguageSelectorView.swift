@@ -6,6 +6,7 @@ import SwiftUI
 
 struct LanguageSelectorView: View {
     @State private var currentLanguage: AppLanguage = .system
+    @State private var showRestartNotice = false
 
     var body: some View {
         HStack(spacing: 4) {
@@ -34,13 +35,20 @@ struct LanguageSelectorView: View {
                 }
             }
         }
+        .alert("Language saved", isPresented: $showRestartNotice) {
+            Button("OK") {}
+        } message: {
+            Text("Restart TERRA to apply the language change.")
+        }
     }
 
     private func select(_ lang: AppLanguage) {
+        guard lang != currentLanguage else { return }
         currentLanguage = lang
         UserDefaults.standard.set([lang.localeId], forKey: "AppleLanguages")
-        // Note: full locale change requires app restart.
-        // In a production build, prompt user to restart or use Bundle swizzling.
+        if lang != .system {
+            showRestartNotice = true
+        }
     }
 }
 
