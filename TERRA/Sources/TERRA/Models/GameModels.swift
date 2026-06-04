@@ -162,44 +162,6 @@ enum Continent: String, CaseIterable, Codable {
     case oceania = "Oceania"
 }
 
-// MARK: - The Baby
-// Presence in the room. No data. No model. No code.
-// She doesn't need a struct. She's already in the building.
-
-// MARK: - Story Chapter
-
-struct Chapter: Identifiable, Codable {
-    let id: UUID
-    let characterId: UUID
-    let title: String
-    let scenes: [StoryScene]
-    var isCompleted: Bool = false
-    var score: Int = 0
-}
-
-struct StoryScene: Identifiable, Codable {
-    let id: UUID
-    let narrative: String
-    let choices: [Choice]
-    var selectedChoiceId: UUID?
-}
-
-struct Choice: Identifiable, Codable {
-    let id: UUID
-    let text: String
-    let outcome: String
-    let impactScore: Int
-    let nextSceneId: UUID?
-    let globalImpact: GlobalImpact
-}
-
-struct GlobalImpact: Codable {
-    let co2Reduced: Double
-    let livesTouched: Int
-    let forestSaved: Double
-    let description: String
-}
-
 // MARK: - Global State
 
 struct WorldData: Codable {
