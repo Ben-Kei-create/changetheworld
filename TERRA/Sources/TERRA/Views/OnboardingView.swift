@@ -36,7 +36,7 @@ struct OnboardingView: View {
             visual: "map.fill",
             color: TerraColor.sunGold,
             headline: "Begin anywhere.",
-            body: "Six continents. Six stories. Two are open to you now. Finish one to unlock the next. The world will expand.",
+            body: "Six continents. Seven stories. Two are open to you now. Finish one to unlock the next. The world will expand.",
             cta: "Enter the World"
         )
     ]
