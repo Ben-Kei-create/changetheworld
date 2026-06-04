@@ -172,12 +172,12 @@ struct Chapter: Identifiable, Codable {
     let id: UUID
     let characterId: UUID
     let title: String
-    let scenes: [Scene]
+    let scenes: [StoryScene]
     var isCompleted: Bool = false
     var score: Int = 0
 }
 
-struct Scene: Identifiable, Codable {
+struct StoryScene: Identifiable, Codable {
     let id: UUID
     let narrative: String
     let choices: [Choice]
