@@ -29,12 +29,18 @@ struct StoryView: View {
             .ignoresSafeArea()
 
             if showCompletionScreen {
+                let isLastStory = !gameState.completedChapterIds.contains(character.id)
+                    && gameState.completedChapterIds.count + 1 >= gameState.characters.count
                 ChapterCompletionView(
                     character: character,
                     score: totalScore,
+                    isLastStory: isLastStory,
                     onContinue: {
                         gameState.completeChapter(characterId: character.id, score: totalScore)
-                        gameState.currentScreen = .worldMap
+                        if !gameState.allStoriesComplete {
+                            gameState.currentScreen = .worldMap
+                        }
+                        // If all stories complete, GameState schedules .reflection after 1.5s
                     }
                 )
                 .transition(.opacity)
@@ -402,6 +408,7 @@ struct OutcomeView: View {
 struct ChapterCompletionView: View {
     let character: Character
     let score: Int
+    let isLastStory: Bool
     let onContinue: () -> Void
 
     @State private var appeared = false
@@ -459,11 +466,11 @@ struct ChapterCompletionView: View {
                 .opacity(appeared ? 1.0 : 0)
 
             Button(action: onContinue) {
-                Text("Return to World Map")
+                Text(isLastStory ? "You have heard every story." : "Return to World Map")
                     .font(.system(size: 15, weight: .medium))
                     .tracking(2)
                     .foregroundColor(.black)
-                    .frame(width: 260, height: 50)
+                    .frame(width: 280, height: 50)
                     .background(character.challenge.color)
                     .cornerRadius(6)
             }
