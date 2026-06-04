@@ -1,0 +1,35 @@
+// TERRA Xcode Build Configuration
+// Apply to both Debug and Release targets in Xcode
+
+PRODUCT_NAME = TERRA
+PRODUCT_BUNDLE_IDENTIFIER = world.terraapp.TERRA
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
+
+MACOSX_DEPLOYMENT_TARGET = 14.0
+SWIFT_VERSION = 5.9
+
+// App Sandbox + Hardened Runtime (required for notarization + App Store)
+ENABLE_APP_SANDBOX = YES
+ENABLE_HARDENED_RUNTIME = YES
+CODE_SIGN_ENTITLEMENTS = Sources/TERRA/Resources/TERRA.entitlements
+
+// Asset catalog
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
+
+// Localization
+DEVELOPMENT_LANGUAGE = en
+SWIFT_ACTIVE_COMPILATION_CONDITIONS_DEBUG = DEBUG
+
+// Release build settings
+// Set in Xcode: CODE_SIGN_IDENTITY, DEVELOPMENT_TEAM
+// Do not commit those values here.
+
+// Compiler optimizations
+SWIFT_OPTIMIZATION_LEVEL_RELEASE = -O
+GCC_OPTIMIZATION_LEVEL_RELEASE = s
+
+// Strip debug symbols in release
+STRIP_INSTALLED_PRODUCT_RELEASE = YES
+COPY_PHASE_STRIP_RELEASE = YES

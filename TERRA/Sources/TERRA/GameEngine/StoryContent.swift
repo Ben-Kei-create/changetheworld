@@ -241,6 +241,29 @@ private func carlosStory() -> StoryContent {
                         impactScore: 10
                     )
                 ]
+            ),
+            StoryScene(
+                narrative: "The contract was rewritten on your terms. The forest has a legal shield for the first time in its history.\n\nBut something else is happening in the community. A younger man, Rodrigo — 22 years old, Carlos's nephew — is building a following among the younger generation. He has a phone, a YouTube channel, and 40,000 subscribers who watch him hunt and fish in the forest. He is proud of the forest. He loves it.\n\nBut Rodrigo has been in conversations with an ecotourism company from São Paulo. They want to bring 200 visitors a month into the community's territory. Jobs. Income. Visibility.\n\nRodrigo asks Carlos: 'Why do you only talk to lawyers and governments? The world is watching us online. That is also power.'\n\nCarlos is not sure Rodrigo is wrong.",
+                choices: [
+                    StoryChoice(
+                        text: "Embrace Rodrigo's platform. Go on camera with him. Tell the forest's story to his 40,000 viewers.",
+                        outcome: "The video gets two million views. The logging company that has been circling your territory for three years sees it. Their investors — a German pension fund with an ESG mandate — quietly withdraw. You never know this happened. But the logging company's project is canceled. Rodrigo never knows either. But he keeps making videos.",
+                        icon: "video.fill",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Help Rodrigo lead the ecotourism negotiation himself — with your guidance on terms.",
+                        outcome: "Rodrigo negotiates a visitor cap of 40 per month, community-led guides only, no external ownership. The income is modest but real. More importantly, Rodrigo has learned what negotiating on your own terms looks like. He will do it for the rest of his life.",
+                        icon: "person.2.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Warn Rodrigo about the risks: commodifying the forest changes how people see it.",
+                        outcome: "Rodrigo disagrees. You disagree respectfully. The conversation between you lasts three years. The community holds a formal council. The decision — a limited ecotourism pilot with a community veto — is made by the people who will live with it. As it should be.",
+                        icon: "bubble.left.and.bubble.right.fill",
+                        impactScore: 8
+                    )
+                ]
             )
         ]
     )
@@ -271,6 +294,52 @@ private func fatimaStory() -> StoryContent {
                         text: "Contact a refugee education NGO to take over the program and give it institutional protection.",
                         outcome: "The NGO formalizes the school. Adds three more teachers. The tent becomes a permanent structure within a year. You become director of education for the whole camp.",
                         icon: "building.columns.fill",
+                        impactScore: 9
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "The school survived. Eight months later, Fatima faces a different kind of wall.\n\nA 14-year-old girl named Nour — one of her best students, the one who reads in three languages and corrects Fatima's French — has been told by her father that she will not continue school next year. There are chores. There is a younger brother who needs attending. There is the marriage her uncle has begun to discuss.\n\nFatima is holding Nour's last essay. It is about the mathematician Emmy Noether. Nour has underlined: 'She was not permitted to lecture under her own name. So she lectured anyway.'",
+                choices: [
+                    StoryChoice(
+                        text: "Speak to Nour's father directly. Bring proof of her academic achievements.",
+                        outcome: "He listens for eleven minutes. Then he says: 'I know she is brilliant. That is not the problem.' You understand, finally, that the conversation is not about Nour's ability. You go home and think for a long time. You come back the next day with a different question.",
+                        icon: "person.2.fill",
+                        impactScore: 7
+                    ),
+                    StoryChoice(
+                        text: "Connect the family to a women's education stipend program that provides financial support.",
+                        outcome: "The stipend removes the economic argument. Nour returns. Two years later, she wins a regional scholarship to university in Amman. She studies mathematics. Her first paper cites Emmy Noether.",
+                        icon: "banknote.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Give Nour the essay back. Tell her she already knows what to do. Trust her.",
+                        outcome: "Nour reads the underlined line again. She speaks to her father herself, for three hours, in the language he understands best — the language of her future providing for the family. He listens to her in a way he would not have listened to you. She stays in school.",
+                        icon: "star.fill",
+                        impactScore: 9
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "Nour is at university. Fatima is still in the camp — by choice. She has been offered a position at an international education consultancy in Geneva. Real salary. Real office. Ability to influence policy for thousands of schools like the tent she built.\n\nBut today, a new family arrived. Syrian. A mother and three children. The youngest, a boy of six named Yousef, has not spoken since they crossed the border four months ago. He sits in the corner of Fatima's tent and watches everything with enormous, quiet eyes.\n\nThe Geneva flight is in five days.",
+                choices: [
+                    StoryChoice(
+                        text: "Accept Geneva. Train a replacement and leave the strongest possible foundation.",
+                        outcome: "You spend five days building binders, training two teachers, writing lesson plans for the next year. You board the plane. At Geneva, your first policy brief recommends mandatory trauma-informed pedagogy in all UNHCR schools. It is adopted in 14 countries. Yousef's school, two years later, has a trained trauma counselor. You never meet him. But he learns to speak again.",
+                        icon: "airplane.departure",
+                        impactScore: 8
+                    ),
+                    StoryChoice(
+                        text: "Delay Geneva by six months. Yousef needs continuity right now, and so does the school.",
+                        outcome: "By month three, Yousef draws a picture and pushes it across the table to you. It is a house with a sun. By month five, he says your name. You take the Geneva position in autumn, but the six months change how you understand the word 'policy' for the rest of your career.",
+                        icon: "clock.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Turn Geneva down. This is the work. This tent, this boy, this morning.",
+                        outcome: "You stay. Geneva finds someone else — someone who has never sat on a dirt floor. Yousef learns to speak. You train twelve more teachers over the next four years. You never write a policy brief. But you build something that outlasts the camp.",
+                        icon: "heart.fill",
                         impactScore: 9
                     )
                 ]
@@ -307,6 +376,52 @@ private func jamesStory() -> StoryContent {
                         impactScore: 2
                     )
                 ]
+            ),
+            StoryScene(
+                narrative: "The garden survived. James is now known across Lagos.\n\nA government official has offered him a stipend and a position: 'Urban Agriculture Coordinator' — a new title, created for him. The role would let him push the model city-wide. Ten more gardens, official support, a budget.\n\nBut last week, James discovered that the same official's construction company received permits to demolish three community gardens in Ikeja last year. The offer may be genuine. Or it may be a way to keep James close enough to manage.",
+                choices: [
+                    StoryChoice(
+                        text: "Accept. Work from inside. Demand the Ikeja gardens be part of your mandate.",
+                        outcome: "The official agrees to include Ikeja in the restoration plan — in writing. You take the position. Six months later, the three gardens in Ikeja are rebuilt. Two of your ten new sites are quietly blocked. The math still works in humanity's favor.",
+                        icon: "building.columns.fill",
+                        impactScore: 8
+                    ),
+                    StoryChoice(
+                        text: "Decline. Investigate the Ikeja demolitions first. Publish what you find.",
+                        outcome: "The investigation takes three weeks. What you find is published in a Lagos newspaper. The official's construction permits are frozen. He withdraws the offer. You are on your own again — but the story changes who controls the approval process.",
+                        icon: "magnifyingglass",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Counter-propose: a community-led board controls the program, not the official.",
+                        outcome: "He says no. You ask the 500 families to sign a governance charter instead, establishing the garden as a community land trust — a legal structure the city cannot easily undo. It takes six months longer. Nobody can co-opt it.",
+                        icon: "person.3.fill",
+                        impactScore: 10
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "Three years in. James has nine gardens, 4,200 families, and a waiting list for the next site.\n\nHe receives a message from a foundation in Amsterdam. They want to fund James to replicate the model in Nairobi, Dhaka, and São Paulo. Full budget. Four years. His name on the methodology.\n\nHis youngest son, Emeka, is seven. Emeka has grown up watching his father dig. Last Tuesday, unprompted, Emeka planted a seed in a cracked plastic cup and placed it on the windowsill. He checks it every morning before school.\n\nJames looks at the message from Amsterdam. He looks at the cup on the windowsill.",
+                choices: [
+                    StoryChoice(
+                        text: "Accept Amsterdam. Emeka will understand, when he's older.",
+                        outcome: "The model lands in three cities. Thousands of families eat because James went. Emeka's cup grows a small tomato plant. His mother photographs it and sends it to James in Nairobi. James keeps the photo as his phone wallpaper for the rest of his life.",
+                        icon: "globe",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Accept, but bring Emeka for the first year in Nairobi.",
+                        outcome: "Emeka attends a Nairobi school for one year. He speaks three languages by the end. He digs in the first Nairobi garden with his father. Fifteen years later, Emeka will start his own urban food organization — and he will name it after the cup on the windowsill.",
+                        icon: "person.2.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Decline Amsterdam. Train someone else to carry the methodology.",
+                        outcome: "You write the playbook. Eighty-three pages. Everything you know. You send it to the Amsterdam foundation and they fund three other people to carry it forward. You stay in Lagos. Emeka's tomato plant fills the whole windowsill by summer.",
+                        icon: "doc.text.fill",
+                        impactScore: 8
+                    )
+                ]
             )
         ]
     )
@@ -338,6 +453,52 @@ private func hanaStory() -> StoryContent {
                         outcome: "You set up a small table with tea in the lobby every Monday morning. Management asks you to stop. You ask them to come have tea and explain why. The manager stays for an hour. The table moves upstairs — into the storage room.",
                         icon: "cup.and.saucer.fill",
                         impactScore: 8
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "The community room opened. It has twelve chairs, a kettle, and a rule Hana made up herself: no phones on the table.\n\nThere is a man named Tanaka-san on the fourth floor. He is 81. He comes every Monday and sits in the same corner chair and does not speak. He has come for eleven weeks in a row. Hana has learned that his wife died last year and that he has a son in Osaka who visits twice a year and calls every Sunday for exactly seven minutes.\n\nToday, Tanaka-san brought something. He set it on the table and sat down. It is a small tin box. He has not explained it. He is looking at his hands.",
+                choices: [
+                    StoryChoice(
+                        text: "Say nothing. Pour him tea. Let the silence hold him.",
+                        outcome: "He stays for two and a half hours. He never explains the tin box. Neither do you. When he leaves, he says: 'Same time next week.' It is the first complete sentence you have heard him say. You don't know what is in the box. Some things aren't yours to know.",
+                        icon: "cup.and.saucer.fill",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Ask gently: 'Is that something you'd like to share with us?'",
+                        outcome: "He opens the box. Inside are photographs — his wife, their honeymoon in Kyoto, 1971. He speaks for forty minutes. Three other neighbors stay to listen. At the end, he closes the box and says: 'I had forgotten I was still a person with a story.' You realize you have built something that cannot be measured.",
+                        icon: "photo.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Invite him to be a co-host. Give him a role. Responsibility creates connection.",
+                        outcome: "He becomes the one who makes tea. A small thing. But he arrives twenty minutes early every Monday now. He has started leaving the door propped open before the others arrive — a signal, in the language of small gestures, that someone is already waiting.",
+                        icon: "person.badge.plus",
+                        impactScore: 9
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "The community room is two years old. Hana is 74.\n\nA journalist from NHK wants to do a feature. 'Tackling Japan's loneliness epidemic from the inside of a storage room.' The story would reach millions. It might inspire other buildings, other cities, other Hanas.\n\nBut Tanaka-san pulls Hana aside before the interview. He says, quietly: 'I come here because it is not on television. Because no one is watching. If you put this on television, I will not come back.'\n\nHe is not asking her not to do it. He is telling her something true.",
+                choices: [
+                    StoryChoice(
+                        text: "Do the interview. The larger impact is worth the cost.",
+                        outcome: "The NHK segment airs. 847 people contact NHK asking how to start a community room in their building. A national initiative follows. Tanaka-san doesn't come back for three months. Then, quietly, he does. He sits in the corner. He doesn't say anything. But he comes.",
+                        icon: "tv.fill",
+                        impactScore: 7
+                    ),
+                    StoryChoice(
+                        text: "Decline the interview. Ask the journalist to tell a different story instead — about the policy gap.",
+                        outcome: "The journalist writes an opinion piece about why Japanese zoning law makes community space nearly impossible to create. It reaches the same audience. Three city council members read it. A pilot program begins. Tanaka-san never knows. The room is never on television. It stays exactly what it is.",
+                        icon: "newspaper.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Ask the room — everyone in it — what they want.",
+                        outcome: "You hold a vote. Twelve people. Six say yes, five say no, Tanaka-san abstains. You decline the interview. The journalist is frustrated. You tell them: 'This place only works because it belongs to the people in it.' The journalist quotes you anyway. It's enough.",
+                        icon: "person.3.fill",
+                        impactScore: 9
                     )
                 ]
             )

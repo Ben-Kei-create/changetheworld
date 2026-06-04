@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- App Sandbox required for Mac App Store distribution -->
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+
+    <!-- Read-only access to user-selected files (not needed currently, but declared for future save export) -->
+    <!-- <key>com.apple.security.files.user-selected.read-only</key> -->
+    <!-- <true/> -->
+
+    <!-- Network access — NOT enabled. TERRA is fully offline. -->
+    <!-- com.apple.security.network.client intentionally omitted -->
+
+    <!-- Audio playback (for BGM/SFX) -->
+    <key>com.apple.security.device.audio-input</key>
+    <false/>
+</dict>
+</plist>
