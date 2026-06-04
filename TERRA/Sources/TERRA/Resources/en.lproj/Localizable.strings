@@ -7,7 +7,7 @@
 "menu.continue" = "Continue";
 "menu.impact" = "Our Impact";
 "menu.settings" = "Settings";
-"menu.version_footer" = "v1.0  ·  Stories from 6 continents  ·  Real data, real change";
+"menu.version_footer" = "v1.0  ·  Stories from 7 characters  ·  Real data, real change";
 
 /* World Map */
 "worldmap.title" = "CHOOSE YOUR STORY";
@@ -71,7 +71,7 @@
 "onboard.step3.headline" = "Your choices have weight.";
 "onboard.step3.body" = "Every decision you make shapes the story and accumulates into your global impact score — a reflection of the kind of world you help build.";
 "onboard.step4.headline" = "Begin anywhere.";
-"onboard.step4.body" = "Six continents. Six stories. Two are open to you now. Finish one to unlock the next. The world will expand.";
+"onboard.step4.body" = "Six continents. Seven stories. Two are open to you now. Finish one to unlock the next. The world will expand.";
 "onboard.step4.cta" = "Enter the World";
 "onboard.back" = "Back";
 "onboard.continue" = "Continue";
@@ -80,3 +80,31 @@
 "about.version" = "Version 1.0  ·  © 2026 TERRA Studio";
 "about.description" = "TERRA is a narrative experience built on the belief that understanding is the first step to change. Each story is grounded in real research, real data, and the lives of real people working on the world's most urgent challenges.\n\nThe choices you make reflect the choices humanity faces. None are easy. All matter.";
 "about.close" = "Close";
+
+/* Origin Question (before the game begins) */
+"origin.before_you_enter" = "Before you enter.";
+"origin.question" = "Where did you come from?";
+"origin.placeholder" = "A place. A person. A moment.";
+"origin.skip" = "Skip — I'd rather not say";
+"origin.enter" = "Enter the world  →";
+"origin.private" = "No one else will see this.";
+"origin.echo" = "You'll see this again, at the end.";
+
+/* Player Reflection (after all 7 stories) */
+"reflect.heard" = "You have heard seven stories.";
+"reflect.from_to" = "From Senegal to Sweden.\nFrom 16 to 72.\nFrom a tent to a tokyo storage room.";
+"reflect.now_your_turn" = "Now it is your turn.";
+"reflect.ready" = "I'm ready";
+"reflect.after_all" = "After all of this —";
+"reflect.what_think" = "What do\nyou think?";
+"reflect.remember_prompt" = "Is there something you want to remember?";
+"reflect.remember_note" = "Write it here. It stays only on your device.";
+"reflect.skip" = "Skip";
+"reflect.save_continue" = "Save & Continue";
+"reflect.thank_you" = "Thank you for being here.";
+"reflect.return" = "Return";
+
+/* Credits */
+"credits.title" = "CREDITS & SOURCES";
+"credits.back" = "Back";
+"credits.copyright" = "© 2026 TERRA Studio · terraapp.world";

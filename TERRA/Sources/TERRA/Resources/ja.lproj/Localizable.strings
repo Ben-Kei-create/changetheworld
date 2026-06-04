@@ -7,7 +7,7 @@
 "menu.continue" = "続きから";
 "menu.impact" = "私たちの影響";
 "menu.settings" = "設定";
-"menu.version_footer" = "v1.0  ·  6大陸からの物語  ·  リアルデータ、リアルな変化";
+"menu.version_footer" = "v1.0  ·  7人の物語  ·  リアルデータ、リアルな変化";
 
 /* 世界地図 */
 "worldmap.title" = "ストーリーを選んでください";
@@ -71,7 +71,7 @@
 "onboard.step3.headline" = "あなたの選択には重みがある。";
 "onboard.step3.body" = "あなたの決断がストーリーを形作り、グローバルインパクトスコアに積み重なる——あなたが築こうとする世界の反映として。";
 "onboard.step4.headline" = "どこからでも始めよう。";
-"onboard.step4.body" = "6大陸。6つの物語。今は2つが開かれている。1つ完了すれば次がアンロックされる。世界は広がっていく。";
+"onboard.step4.body" = "6大陸。7つの物語。今は2つが開かれている。1つ完了すれば次がアンロックされる。世界は広がっていく。";
 "onboard.step4.cta" = "世界へ入る";
 "onboard.back" = "戻る";
 "onboard.continue" = "続ける";
@@ -80,3 +80,31 @@
 "about.version" = "バージョン 1.0  ·  © 2026 TERRA Studio";
 "about.description" = "TERRAは、理解こそが変化への第一歩であるという信念のもとに作られたナラティブ体験です。各ストーリーは実際のリサーチ、リアルデータ、そして世界で最も緊急な課題に取り組む実在する人々の生き方に基づいています。\n\nあなたが行う選択は、人類が直面している選択を映している。どれも簡単ではない。すべてが重要だ。";
 "about.close" = "閉じる";
+
+/* 始まりの問い（ゲーム開始前） */
+"origin.before_you_enter" = "入る前に。";
+"origin.question" = "君はどこからきた？";
+"origin.placeholder" = "場所。人。ある瞬間。";
+"origin.skip" = "スキップ——言いたくない";
+"origin.enter" = "世界へ入る  →";
+"origin.private" = "誰も見ない。";
+"origin.echo" = "最後に、また会う。";
+
+/* プレイヤーの省察（全7ストーリー後） */
+"reflect.heard" = "あなたは七つの物語を聴いた。";
+"reflect.from_to" = "セネガルからスウェーデンへ。\n16歳から72歳まで。\nテントから東京のトランクルームへ。";
+"reflect.now_your_turn" = "今度はあなたの番だ。";
+"reflect.ready" = "準備ができた";
+"reflect.after_all" = "これだけのことを経て——";
+"reflect.what_think" = "あなたはどう\n思う？";
+"reflect.remember_prompt" = "覚えておきたいことはありますか？";
+"reflect.remember_note" = "ここに書いてください。あなたのデバイスにだけ残ります。";
+"reflect.skip" = "スキップ";
+"reflect.save_continue" = "保存して続ける";
+"reflect.thank_you" = "ここにいてくれてありがとう。";
+"reflect.return" = "戻る";
+
+/* クレジット */
+"credits.title" = "クレジット & 出典";
+"credits.back" = "戻る";
+"credits.copyright" = "© 2026 TERRA Studio · terraapp.world";
