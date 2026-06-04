@@ -51,7 +51,7 @@ struct ContentView: View {
             SoundManager.shared.play(.worldMap)
         case .storyChapter(let character):
             SoundManager.shared.play(SoundManager.track(for: character))
-        case .impactReport, .settings, .credits:
+        case .impactReport, .settings, .reflection, .credits:
             break
         }
     }

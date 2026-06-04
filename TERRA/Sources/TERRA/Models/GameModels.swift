@@ -52,9 +52,10 @@ struct Character: Identifiable, Codable {
     let coordinates: WorldCoordinate
     var isUnlocked: Bool
 
+    // UUIDs are fixed so save data survives app restarts
     static let all: [Character] = [
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "11111111-1111-1111-1111-111111111111")!,
             name: "Amara Diallo",
             age: 28,
             origin: "Senegal",
@@ -67,7 +68,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: true
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "22222222-2222-2222-2222-222222222222")!,
             name: "Mei Lin",
             age: 19,
             origin: "China",
@@ -80,7 +81,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: true
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "33333333-3333-3333-3333-333333333333")!,
             name: "Carlos Vega",
             age: 45,
             origin: "Peru",
@@ -93,7 +94,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: false
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "44444444-4444-4444-4444-444444444444")!,
             name: "Fatima Al-Hassan",
             age: 34,
             origin: "Jordan",
@@ -106,7 +107,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: false
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "55555555-5555-5555-5555-555555555555")!,
             name: "James Okafor",
             age: 55,
             origin: "Nigeria",
@@ -119,7 +120,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: false
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "66666666-6666-6666-6666-666666666666")!,
             name: "Hana Nakamura",
             age: 72,
             origin: "Japan",
@@ -132,7 +133,7 @@ struct Character: Identifiable, Codable {
             isUnlocked: false
         ),
         Character(
-            id: UUID(),
+            id: UUID(uuidString: "77777777-7777-7777-7777-777777777777")!,
             name: "Astrid Lindqvist",
             age: 16,
             origin: "Sweden",

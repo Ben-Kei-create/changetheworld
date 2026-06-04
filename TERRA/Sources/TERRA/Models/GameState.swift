@@ -114,6 +114,7 @@ final class GameState: ObservableObject {
         guard let data = try? JSONEncoder().encode(worldData) else { return }
         UserDefaults.standard.set(data, forKey: saveKey)
         UserDefaults.standard.set(Array(completedChapterIds.map { $0.uuidString }), forKey: "\(saveKey)_chapters")
+        UserDefaults.standard.set(hasCompletedReflection, forKey: "\(saveKey)_reflected")
     }
 
     func load() {
@@ -125,15 +126,27 @@ final class GameState: ObservableObject {
         if let chapterStrings = UserDefaults.standard.array(forKey: "\(saveKey)_chapters") as? [String] {
             completedChapterIds = Set(chapterStrings.compactMap { UUID(uuidString: $0) })
         }
+        hasCompletedReflection = UserDefaults.standard.bool(forKey: "\(saveKey)_reflected")
+
+        // Restore character unlock state: unlock one character per completed story
+        // (Character.all starts with Amara + Mei Lin unlocked; each completion unlocks the next)
+        let unlockCount = completedChapterIds.count
+        for _ in 0..<unlockCount {
+            unlockNextCharacter()
+        }
     }
 
     func resetGame() {
         worldData = WorldData()
         completedChapterIds = []
         totalImpactScore = 0
+        hasCompletedReflection = false
+        playerReflectionStance = nil
+        playerReflectionThought = ""
         characters = Character.all
         UserDefaults.standard.removeObject(forKey: saveKey)
         UserDefaults.standard.removeObject(forKey: "\(saveKey)_chapters")
+        UserDefaults.standard.removeObject(forKey: "\(saveKey)_reflected")
         currentScreen = .mainMenu
     }
 }
