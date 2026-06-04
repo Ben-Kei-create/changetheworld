@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "TERRA",
+    defaultLocalization: "en",
     platforms: [
         .macOS(.v14)
     ],
@@ -14,6 +15,10 @@ let package = Package(
         .executableTarget(
             name: "TERRA",
             path: "Sources/TERRA",
+            exclude: [
+                "Resources/Info.plist",
+                "Resources/TERRA.entitlements"
+            ],
             resources: [
                 .process("Resources")
             ]
