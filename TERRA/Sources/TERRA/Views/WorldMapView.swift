@@ -7,6 +7,7 @@ struct WorldMapView: View {
     @State private var mapScale: CGFloat = 1.0
     @State private var mapOffset: CGSize = .zero
     @State private var showIntro = true
+    @State private var breathe = false  // Sofia: "alive before you click"
 
     var body: some View {
         ZStack {
@@ -57,15 +58,34 @@ struct WorldMapView: View {
                     // World map area
                     GeometryReader { geo in
                         ZStack {
+                            // Stars — visible before any interaction
+                            StarFieldView()
+                                .opacity(0.25)
+
                             // Ocean
                             RadialGradient(
                                 colors: [
-                                    Color(red: 0.08, green: 0.18, blue: 0.40),
-                                    Color(red: 0.03, green: 0.08, blue: 0.22)
+                                    Color(red: 0.08, green: 0.18, blue: 0.40).opacity(0.92),
+                                    Color(red: 0.03, green: 0.08, blue: 0.22).opacity(0.88)
                                 ],
                                 center: .center,
                                 startRadius: 100,
                                 endRadius: 600
+                            )
+
+                            // Breathing pulse — a slow deep-sea glow
+                            RadialGradient(
+                                colors: [
+                                    Color(red: 0.1, green: 0.4, blue: 0.8).opacity(breathe ? 0.18 : 0.06),
+                                    Color.clear
+                                ],
+                                center: .center,
+                                startRadius: 80,
+                                endRadius: 420
+                            )
+                            .animation(
+                                .easeInOut(duration: 4.5).repeatForever(autoreverses: true),
+                                value: breathe
                             )
 
                             // Grid lines (latitude/longitude)
@@ -107,6 +127,7 @@ struct WorldMapView: View {
                 IntroOverlay(isShowing: $showIntro)
             }
         }
+        .onAppear { breathe = true }
     }
 }
 
