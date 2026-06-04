@@ -9,6 +9,7 @@ enum AppScreen: Equatable {
     case impactReport
     case settings
     case reflection
+    case credits
 
     static func == (lhs: AppScreen, rhs: AppScreen) -> Bool {
         switch (lhs, rhs) {
@@ -17,7 +18,8 @@ enum AppScreen: Equatable {
              (.characterSelect, .characterSelect),
              (.impactReport, .impactReport),
              (.settings, .settings),
-             (.reflection, .reflection):
+             (.reflection, .reflection),
+             (.credits, .credits):
             return true
         case (.storyChapter(let a), .storyChapter(let b)):
             return a.id == b.id

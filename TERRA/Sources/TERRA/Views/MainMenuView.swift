@@ -135,6 +135,10 @@ struct MainMenuView: View {
                     MenuButton(title: "Settings", style: .ghost) {
                         gameState.currentScreen = .settings
                     }
+
+                    MenuButton(title: "Credits", style: .ghost) {
+                        gameState.currentScreen = .credits
+                    }
                 }
                 .opacity(showButtons ? 1 : 0)
                 .offset(y: showButtons ? 0 : 20)

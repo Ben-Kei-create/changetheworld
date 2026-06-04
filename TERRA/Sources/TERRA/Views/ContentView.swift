@@ -29,6 +29,9 @@ struct ContentView: View {
             case .reflection:
                 PlayerReflectionView()
                     .transition(.opacity)
+            case .credits:
+                CreditsView()
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
         .animation(TerraAnimation.standard, value: gameState.currentScreen)
@@ -48,7 +51,7 @@ struct ContentView: View {
             SoundManager.shared.play(.worldMap)
         case .storyChapter(let character):
             SoundManager.shared.play(SoundManager.track(for: character))
-        case .impactReport, .settings:
+        case .impactReport, .settings, .credits:
             break
         }
     }
