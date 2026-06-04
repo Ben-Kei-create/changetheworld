@@ -26,6 +26,9 @@ struct ContentView: View {
             case .settings:
                 SettingsView()
                     .transition(.move(edge: .bottom).combined(with: .opacity))
+            case .reflection:
+                PlayerReflectionView()
+                    .transition(.opacity)
             }
         }
         .animation(TerraAnimation.standard, value: gameState.currentScreen)

@@ -8,6 +8,7 @@ enum AppScreen: Equatable {
     case storyChapter(Character)
     case impactReport
     case settings
+    case reflection
 
     static func == (lhs: AppScreen, rhs: AppScreen) -> Bool {
         switch (lhs, rhs) {
@@ -15,7 +16,8 @@ enum AppScreen: Equatable {
              (.worldMap, .worldMap),
              (.characterSelect, .characterSelect),
              (.impactReport, .impactReport),
-             (.settings, .settings):
+             (.settings, .settings),
+             (.reflection, .reflection):
             return true
         case (.storyChapter(let a), .storyChapter(let b)):
             return a.id == b.id
@@ -41,6 +43,15 @@ final class GameState: ObservableObject {
     // Story progress
     @Published var completedChapterIds: Set<UUID> = []
     @Published var totalImpactScore: Int = 0
+
+    // Player's own voice — Sprint 6
+    @Published var playerReflectionStance: ReflectionStance?
+    @Published var playerReflectionThought: String = ""
+    @Published var hasCompletedReflection = false
+
+    var allStoriesComplete: Bool {
+        completedChapterIds.count >= characters.count
+    }
 
     private let saveKey = "terra_save_v1"
 
@@ -69,8 +80,22 @@ final class GameState: ObservableObject {
         worldData.totalImpactScore += score
         worldData.storiesCompleted += 1
 
-        // Unlock next character if available
         unlockNextCharacter()
+
+        // After all stories: show reflection screen
+        if allStoriesComplete && !hasCompletedReflection {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.currentScreen = .reflection
+            }
+        }
+
+        save()
+    }
+
+    func saveReflection(stance: ReflectionStance?, thought: String) {
+        playerReflectionStance = stance
+        playerReflectionThought = thought
+        hasCompletedReflection = true
         save()
     }
 

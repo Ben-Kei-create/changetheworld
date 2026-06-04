@@ -426,6 +426,15 @@ struct CharacterInfoPanel: View {
                         .lineSpacing(5)
                         .fixedSize(horizontal: false, vertical: true)
 
+                    // Reading time — 鈴木健司のリクエスト
+                    HStack(spacing: 5) {
+                        Image(systemName: "clock")
+                            .font(.system(size: 11))
+                        Text("Approx. 60–90 min")
+                            .font(.system(size: 12, weight: .light))
+                    }
+                    .foregroundColor(.white.opacity(0.35))
+
                     // Play button
                     if character.isUnlocked {
                         Button(action: onPlay) {

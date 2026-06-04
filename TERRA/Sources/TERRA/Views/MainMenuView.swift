@@ -141,9 +141,13 @@ struct MainMenuView: View {
 
                 Spacer()
 
+                // Language selector — Mohammed のリクエスト (front and center, not buried)
+                LanguageSelectorView()
+                    .padding(.bottom, 12)
+
                 // Footer
                 HStack {
-                    Text("v1.0  ·  Stories from 6 continents  ·  Real data, real change")
+                    Text("v1.0  ·  Stories from 7 characters  ·  Real data, real change")
                         .font(.system(size: 11, weight: .light))
                         .foregroundColor(Color.white.opacity(0.3))
                         .tracking(2)

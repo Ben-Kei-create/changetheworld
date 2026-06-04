@@ -33,6 +33,26 @@ struct SettingsView: View {
                 .padding(.vertical, 20)
 
                 VStack(spacing: 24) {
+                    SettingsSection(title: "Reading & Accessibility") {
+                        TextSizeRow()
+                        SettingsToggle(
+                            label: "Reduce Motion",
+                            icon: "waveform.path",
+                            isOn: Binding(
+                                get: { AccessibilitySettings.shared.reducedMotion },
+                                set: { AccessibilitySettings.shared.reducedMotion = $0 }
+                            )
+                        )
+                        SettingsToggle(
+                            label: "High Contrast Text",
+                            icon: "circle.lefthalf.filled",
+                            isOn: Binding(
+                                get: { AccessibilitySettings.shared.highContrastMode },
+                                set: { AccessibilitySettings.shared.highContrastMode = $0 }
+                            )
+                        )
+                    }
+
                     SettingsSection(title: "Audio") {
                         SettingsToggle(label: "Music", icon: "music.note", isOn: $gameState.musicEnabled)
                         SettingsToggle(label: "Sound Effects", icon: "speaker.wave.2.fill", isOn: $gameState.soundEnabled)
@@ -120,6 +140,44 @@ struct SettingsToggle: View {
                 .toggleStyle(.switch)
                 .labelsHidden()
                 .tint(Color(red: 0.3, green: 0.8, blue: 0.5))
+        }
+        .padding(.vertical, 10)
+    }
+}
+
+struct TextSizeRow: View {
+    @ObservedObject private var a11y = AccessibilitySettings.shared
+
+    private let steps: [CGFloat] = [1.0, 1.25, 1.5]
+    private let labels = ["Standard", "Large", "Largest"]
+
+    var body: some View {
+        HStack {
+            Image(systemName: "textformat.size")
+                .foregroundColor(.white.opacity(0.5))
+                .frame(width: 20)
+            Text("Text Size")
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(.white.opacity(0.7))
+            Spacer()
+            HStack(spacing: 4) {
+                ForEach(0..<steps.count, id: \.self) { i in
+                    Button(labels[i]) {
+                        a11y.textSizeMultiplier = steps[i]
+                    }
+                    .buttonStyle(.plain)
+                    .font(.system(size: 12, weight: a11y.textSizeMultiplier == steps[i] ? .semibold : .light))
+                    .foregroundColor(a11y.textSizeMultiplier == steps[i]
+                        ? Color(red: 0.3, green: 0.8, blue: 0.5)
+                        : .white.opacity(0.35))
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(a11y.textSizeMultiplier == steps[i]
+                        ? Color(red: 0.3, green: 0.8, blue: 0.5).opacity(0.1)
+                        : Color.clear)
+                    .cornerRadius(3)
+                }
+            }
         }
         .padding(.vertical, 10)
     }
