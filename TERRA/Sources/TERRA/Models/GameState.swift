@@ -29,6 +29,7 @@ enum AppScreen: Equatable {
     }
 }
 
+@MainActor
 final class GameState: ObservableObject {
     @Published var currentScreen: AppScreen = .mainMenu
     @Published var worldData = WorldData()

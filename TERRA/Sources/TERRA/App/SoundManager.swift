@@ -1,5 +1,5 @@
 import Foundation
-import AVFoundation
+@preconcurrency import AVFoundation
 import SwiftUI
 
 // MARK: - Sound Manager
@@ -104,12 +104,14 @@ final class SoundManager: ObservableObject {
 
         fadeTimer?.invalidate()
         fadeTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] timer in
-            guard let self, let player = self.bgmPlayer else { timer.invalidate(); return }
-            step += 1
-            player.volume = targetVolume * Float(step) / Float(steps)
-            if step >= steps {
-                player.volume = targetVolume
-                timer.invalidate()
+            MainActor.assumeIsolated {
+                guard let self, let player = self.bgmPlayer else { timer.invalidate(); return }
+                step += 1
+                player.volume = targetVolume * Float(step) / Float(steps)
+                if step >= steps {
+                    player.volume = targetVolume
+                    timer.invalidate()
+                }
             }
         }
     }
@@ -123,13 +125,15 @@ final class SoundManager: ObservableObject {
 
         fadeTimer?.invalidate()
         fadeTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] timer in
-            step += 1
-            player.volume = startVolume * (1.0 - Float(step) / Float(steps))
-            if step >= steps {
-                player.stop()
-                self?.currentTrack = nil
-                timer.invalidate()
-                completion?()
+            MainActor.assumeIsolated {
+                step += 1
+                player.volume = startVolume * (1.0 - Float(step) / Float(steps))
+                if step >= steps {
+                    player.stop()
+                    self?.currentTrack = nil
+                    timer.invalidate()
+                    completion?()
+                }
             }
         }
     }
