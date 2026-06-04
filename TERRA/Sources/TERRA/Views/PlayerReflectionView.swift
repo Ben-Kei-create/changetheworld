@@ -221,24 +221,50 @@ struct PlayerReflectionView: View {
     // MARK: - Closing
 
     private var closingPhase: some View {
-        VStack(spacing: 40) {
+        let playerOrigin = UserDefaults.standard.string(forKey: "terra_player_origin")
+
+        return VStack(spacing: 40) {
             Spacer()
 
-            VStack(spacing: 24) {
+            VStack(spacing: 32) {
+                // Mirror: show player's opening answer
+                if let origin = playerOrigin, !origin.isEmpty {
+                    VStack(spacing: 12) {
+                        Text("At the beginning, you wrote:")
+                            .font(.system(size: 12, weight: .light))
+                            .foregroundColor(Color(white: 0.5))
+                            .tracking(1)
+
+                        Text(""\(origin)"")
+                            .font(.system(size: 20, weight: .light, design: .serif))
+                            .foregroundColor(Color(white: 0.25))
+                            .italic()
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 500)
+                    }
+                    .padding(24)
+                    .background(Color(white: 0.96))
+                    .cornerRadius(6)
+
+                    Text("↓")
+                        .font(.system(size: 18))
+                        .foregroundColor(Color(white: 0.7))
+                }
+
                 if let stance = selectedStance {
                     Text(stance.closingMessage)
-                        .font(.system(size: 28, weight: .light, design: .serif))
+                        .font(.system(size: 26, weight: .light, design: .serif))
                         .foregroundColor(Color(white: 0.12))
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
-                        .frame(maxWidth: 600)
+                        .frame(maxWidth: 560)
                 }
 
                 if !writtenThought.isEmpty {
                     VStack(spacing: 8) {
                         Rectangle()
                             .fill(Color(white: 0.85))
-                            .frame(width: 1, height: 32)
+                            .frame(width: 1, height: 28)
 
                         Text(writtenThought)
                             .font(.system(size: 15, weight: .light, design: .serif))
