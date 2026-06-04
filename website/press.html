@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TERRA Press Kit — assets, facts, and contact for journalists and reviewers.">
+  <title>TERRA — Press Kit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Press-specific styles */
+    .press-hero {
+      padding: 140px 40px 80px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .press-hero .section-label {
+      margin-bottom: 24px;
+    }
+    .press-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+    .press-hero p {
+      font-size: 18px;
+      color: var(--text-second);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    .press-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px 120px;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .press-grid { grid-template-columns: 1fr; }
+    }
+
+    .press-section {
+      margin-bottom: 64px;
+    }
+
+    .press-section h2 {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-third);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .press-section p,
+    .press-section li {
+      font-size: 15px;
+      color: var(--text-second);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+
+    .press-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .press-section ul li::before {
+      content: "·  ";
+      color: var(--earth-green);
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .fact-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .fact-card .fact-value {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--earth-soft);
+      margin-bottom: 4px;
+    }
+
+    .fact-card .fact-label {
+      font-size: 12px;
+      color: var(--text-third);
+      letter-spacing: 1px;
+    }
+
+    .quote-block {
+      border-left: 2px solid var(--earth-green);
+      padding: 16px 24px;
+      margin: 24px 0;
+      background: rgba(56, 184, 112, 0.05);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-primary) !important;
+      margin: 0 0 8px !important;
+    }
+
+    .quote-block .quote-attr {
+      font-size: 12px;
+      color: var(--text-third) !important;
+      letter-spacing: 1px;
+      margin: 0 !important;
+    }
+
+    .asset-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .asset-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--text-second);
+    }
+
+    .asset-item .asset-badge {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+      background: rgba(56, 184, 112, 0.15);
+      color: var(--earth-soft);
+      border: 1px solid rgba(56, 184, 112, 0.3);
+    }
+
+    .asset-item .asset-badge.pending {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-third);
+      border-color: var(--border);
+    }
+
+    .sidebar-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-third);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-card p,
+    .sidebar-card a {
+      font-size: 14px;
+      color: var(--text-second);
+      line-height: 1.8;
+      margin-bottom: 8px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .sidebar-card a:hover {
+      color: var(--earth-soft);
+    }
+
+    .sidebar-card .contact-name {
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .contact-email {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--ocean-blue) !important;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-third);
+    }
+
+    .review-btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: var(--earth-green);
+      color: #000;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .review-btn:hover {
+      background: var(--earth-soft);
+    }
+
+    .character-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .character-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .character-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .character-table td {
+      padding: 12px 0;
+      font-size: 14px;
+      color: var(--text-second);
+      vertical-align: top;
+    }
+
+    .character-table td:first-child {
+      color: var(--text-primary);
+      font-weight: 400;
+      width: 140px;
+      padding-right: 16px;
+    }
+
+    .character-table td .char-meta {
+      display: block;
+      font-size: 11px;
+      color: var(--text-third);
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="/" style="text-decoration:none;">
+      <div class="nav-logo">TERRA</div>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/press.html" style="color: var(--earth-soft);">Press Kit</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="press-hero">
+    <div class="section-label">PRESS KIT · 2026</div>
+    <h1>A narrative game<br>built on real research.</h1>
+    <p>
+      TERRA is a Mac narrative game that puts players inside the real decisions
+      facing humanity — told through seven characters across six continents,
+      grounded in peer-reviewed data and lived experience.
+    </p>
+  </div>
+
+  <div class="press-body">
+    <div class="press-grid">
+
+      <!-- Main column -->
+      <div>
+
+        <!-- About -->
+        <div class="press-section">
+          <h2>About the Game</h2>
+          <p>
+            TERRA is not a game about saving the world. It is a game about
+            <em>understanding it</em>.
+          </p>
+          <p>
+            Each of the seven playable stories is built from primary sources:
+            IPCC reports, UNHCR field data, peer-reviewed psychology research,
+            UN environment assessments. Players do not fight. They listen,
+            choose, and carry the weight of what they learn.
+          </p>
+          <p>
+            The experience ends with a question the player answers for themselves —
+            and an echo of something they wrote at the very beginning, before
+            the first story. No one else sees either answer.
+          </p>
+
+          <div class="quote-block">
+            <p>"Understanding is the first step to change.<br>
+            We don't ask you to save the world.<br>
+            We ask you to understand it."</p>
+            <span class="quote-attr">TERRA — in-game manifesto</span>
+          </div>
+        </div>
+
+        <!-- Key Facts -->
+        <div class="press-section">
+          <h2>Key Facts</h2>
+          <div class="fact-grid">
+            <div class="fact-card">
+              <div class="fact-value">7</div>
+              <div class="fact-label">Playable stories</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-value">6</div>
+              <div class="fact-label">Continents represented</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-value">21</div>
+              <div class="fact-label">Story scenes, each with real-world data</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-value">$19.99</div>
+              <div class="fact-label">One-time purchase · No subscription</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-value">60–90</div>
+              <div class="fact-label">Estimated minutes per full playthrough</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-value">Zero</div>
+              <div class="fact-label">Data collected from players</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Characters -->
+        <div class="press-section">
+          <h2>The Seven Stories</h2>
+          <table class="character-table">
+            <tr>
+              <td>
+                Amara Diallo
+                <span class="char-meta">28 · Senegal · Solar Engineer</span>
+              </td>
+              <td>
+                Climate Crisis — Africa contributes &lt;4% of global CO₂
+                yet bears the greatest climate burden. Amara has 48 hours
+                to stop a bribe from killing 40 villages' access to solar power.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Mei Lin
+                <span class="char-meta">19 · Shanghai · Researcher</span>
+              </td>
+              <td>
+                Ocean Pollution — 170 million metric tons of plastic in the
+                world's oceans. Mei has mapped the data. Her professor wants
+                her to soften the conclusions.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Carlos Mendoza
+                <span class="char-meta">45 · Amazon · Community Leader</span>
+              </td>
+              <td>
+                Deforestation — 10 million hectares of forest lost every year.
+                Carlos must decide whether to accept a deal that would protect
+                his community but cost the forest around it.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Fatima Al-Rashid
+                <span class="char-meta">17 · Jordan · Refugee Student</span>
+              </td>
+              <td>
+                Inequality &amp; Education — 224 million children out of school.
+                Fatima has a scholarship application and three days before
+                the camp generator fails permanently.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                James Okafor
+                <span class="char-meta">52 · Lagos · Urban Farmer</span>
+              </td>
+              <td>
+                Urban Poverty — 690 million people go hungry each day.
+                James's rooftop garden feeds 23 families. The city has
+                issued him an eviction notice.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Hana Yoshida
+                <span class="char-meta">72 · Tokyo · Former Teacher</span>
+              </td>
+              <td>
+                Human Isolation — loneliness is a health risk equivalent
+                to smoking 15 cigarettes a day. Hana has not spoken to
+                anyone in eleven days.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Astrid Lindqvist
+                <span class="char-meta">16 · Malmö · Student</span>
+              </td>
+              <td>
+                Climate Anxiety — 59% of young people globally are very
+                or extremely worried about climate change. Astrid is asked
+                to speak at a conference. She doesn't know what to say.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Research -->
+        <div class="press-section">
+          <h2>Research Foundation</h2>
+          <p>Every story is built from primary and peer-reviewed sources:</p>
+          <ul>
+            <li>IPCC Sixth Assessment Report (2021–2022)</li>
+            <li>IEA Africa Energy Outlook 2022</li>
+            <li>Jambeck et al. (2015), <em>Science</em> — plastic ocean inputs</li>
+            <li>UNEP: From Pollution to Solution (2021)</li>
+            <li>Rights and Resources Initiative: Who Owns the World's Land?</li>
+            <li>UNHCR Education Report 2022: The Right to Learn</li>
+            <li>UNESCO Global Education Monitoring Report</li>
+            <li>FAO: Urban Food Systems and COVID-19 Response</li>
+            <li>Holt-Lunstad, J. (2015) — loneliness as health risk, <em>Perspectives on Psychological Science</em></li>
+            <li>Hickman et al. (2021) — climate anxiety in young people, <em>The Lancet Planetary Health</em></li>
+            <li>SMHI: Baltic Sea temperature records, 1960–2025</li>
+          </ul>
+          <p style="margin-top: 16px;">
+            Full attribution is available in the in-game Credits screen.
+          </p>
+        </div>
+
+        <!-- Design Philosophy -->
+        <div class="press-section">
+          <h2>Design &amp; Approach</h2>
+          <p>
+            TERRA is built for macOS 14+ as a native SwiftUI application.
+            No ads. No network calls. No analytics. No data leaves the device —
+            ever. The privacy policy is four sentences long.
+          </p>
+          <p>
+            Accessibility is built into the core, not added after: variable
+            text sizing, reduced motion mode, and high-contrast text are all
+            available from settings. Reading time estimates appear before each
+            story begins.
+          </p>
+          <p>
+            The game is available in English and Japanese.
+          </p>
+          <div class="tag-list">
+            <span class="tag">NARRATIVE</span>
+            <span class="tag">EDUCATIONAL</span>
+            <span class="tag">MACOS NATIVE</span>
+            <span class="tag">NO DATA COLLECTION</span>
+            <span class="tag">BILINGUAL EN / JA</span>
+            <span class="tag">OFFLINE ONLY</span>
+          </div>
+        </div>
+
+        <!-- Assets -->
+        <div class="press-section">
+          <h2>Press Assets</h2>
+          <div class="asset-row">
+            <div class="asset-item">
+              <span>App Icon (1024×1024 PNG)</span>
+              <span class="asset-badge pending">Coming with build</span>
+            </div>
+            <div class="asset-item">
+              <span>Screenshot Pack — Main Menu, World Map, Story Scene</span>
+              <span class="asset-badge pending">Coming with build</span>
+            </div>
+            <div class="asset-item">
+              <span>Logo Lockup (Light &amp; Dark, SVG + PNG)</span>
+              <span class="asset-badge pending">Coming with build</span>
+            </div>
+            <div class="asset-item">
+              <span>Press Kit PDF (this page, print-ready)</span>
+              <span class="asset-badge pending">Coming with build</span>
+            </div>
+            <div class="asset-item">
+              <span>Fact Sheet (one-pager, PDF)</span>
+              <span class="asset-badge pending">Coming with build</span>
+            </div>
+          </div>
+          <p style="margin-top: 20px; font-size: 13px; color: var(--text-third);">
+            Assets will be available for download when the App Store build is submitted.
+            Review copies available on request — contact below.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+
+        <div class="sidebar-card">
+          <h3>Press Contact</h3>
+          <p class="contact-name">Hiro Matsumoto</p>
+          <p style="color: var(--text-third); font-size: 12px; margin-bottom: 16px;">Marketing · TERRA Studio</p>
+          <a href="mailto:press@terraapp.world" class="contact-email">press@terraapp.world</a>
+          <div class="divider"></div>
+          <p style="font-size: 12px; color: var(--text-third);">
+            We aim to respond to all press inquiries within 48 hours.
+            Review copies are available for journalists and content creators.
+          </p>
+          <a href="mailto:press@terraapp.world?subject=TERRA%20Review%20Copy%20Request" class="review-btn">
+            Request Review Copy
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Game Details</h3>
+          <p><strong style="color: var(--text-primary);">Title</strong><br>TERRA — Stories of Our World</p>
+          <p><strong style="color: var(--text-primary);">Developer</strong><br>TERRA Studio</p>
+          <p><strong style="color: var(--text-primary);">Platform</strong><br>macOS 14+ (Sonoma and later)</p>
+          <p><strong style="color: var(--text-primary);">Genre</strong><br>Narrative / Educational</p>
+          <p><strong style="color: var(--text-primary);">Price</strong><br>$19.99 USD — one-time purchase</p>
+          <p><strong style="color: var(--text-primary);">Release</strong><br>2026</p>
+          <p><strong style="color: var(--text-primary);">Languages</strong><br>English, Japanese</p>
+          <p><strong style="color: var(--text-primary);">Age Rating</strong><br>4+ (App Store)</p>
+          <p><strong style="color: var(--text-primary);">Website</strong><br>
+            <a href="https://terraapp.world" style="color: var(--ocean-blue);">terraapp.world</a>
+          </p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>The Team</h3>
+          <p><strong style="color: var(--text-primary);">Kai Nakamura</strong><br>
+            <span style="font-size: 12px; color: var(--text-third);">Lead Developer</span></p>
+          <p><strong style="color: var(--text-primary);">Yuna Park</strong><br>
+            <span style="font-size: 12px; color: var(--text-third);">Design &amp; Frontend</span></p>
+          <p><strong style="color: var(--text-primary);">Raj Patel</strong><br>
+            <span style="font-size: 12px; color: var(--text-third);">Backend &amp; Game Logic</span></p>
+          <p><strong style="color: var(--text-primary);">Hiro Matsumoto</strong><br>
+            <span style="font-size: 12px; color: var(--text-third);">Marketing</span></p>
+          <p><strong style="color: var(--text-primary);">Claire Beaumont</strong><br>
+            <span style="font-size: 12px; color: var(--text-third);">Legal Counsel</span></p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Suggested Angles</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="font-size: 13px; color: var(--text-second); margin-bottom: 12px; line-height: 1.7;">
+              · A game that cites its sources — every story links to peer-reviewed research
+            </li>
+            <li style="font-size: 13px; color: var(--text-second); margin-bottom: 12px; line-height: 1.7;">
+              · Complete privacy: no analytics, no tracking, no servers
+            </li>
+            <li style="font-size: 13px; color: var(--text-second); margin-bottom: 12px; line-height: 1.7;">
+              · The mirror structure: players answer a question at the start that echoes back at the end
+            </li>
+            <li style="font-size: 13px; color: var(--text-second); margin-bottom: 12px; line-height: 1.7;">
+              · Climate anxiety as a playable story — validating a feeling that rarely gets named
+            </li>
+            <li style="font-size: 13px; color: var(--text-second); line-height: 1.7;">
+              · A Mac-native game made with SwiftUI in an era of web-wrapped apps
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px; border-top: 1px solid var(--border);">
+    <p style="font-size: 12px; color: var(--text-third); letter-spacing: 2px;">
+      © 2026 TERRA Studio · terraapp.world · press@terraapp.world
+    </p>
+  </footer>
+
+</body>
+</html>
