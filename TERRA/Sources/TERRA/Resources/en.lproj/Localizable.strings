@@ -1,0 +1,82 @@
+/* App */
+"app.name" = "TERRA";
+"app.tagline" = "Stories of Our World";
+
+/* Main Menu */
+"menu.begin" = "Begin Journey";
+"menu.continue" = "Continue";
+"menu.impact" = "Our Impact";
+"menu.settings" = "Settings";
+"menu.version_footer" = "v1.0  ·  Stories from 6 continents  ·  Real data, real change";
+
+/* World Map */
+"worldmap.title" = "CHOOSE YOUR STORY";
+"worldmap.impact_label" = "Impact:";
+"worldmap.hover_hint" = "Hover over a story to explore";
+"worldmap.intro.title" = "The world has many stories.";
+"worldmap.intro.subtitle" = "Each one is connected.";
+"worldmap.intro.cta" = "Explore the World";
+
+/* Character Panel */
+"character.age" = "Age";
+"character.enter" = "Enter Their World";
+"character.locked" = "Complete another story to unlock";
+
+/* Story */
+"story.choice_prompt" = "What do you do?";
+"story.outcome_label" = "Outcome";
+"story.continue" = "Continue";
+"story.complete_chapter" = "Complete Chapter";
+"story.exit" = "Exit Story";
+"story.complete_title" = "Story Complete";
+"story.complete_subtitle" = "%@'s story has been heard.";
+"story.impact_label" = "YOUR IMPACT";
+"story.impact_unit" = "points earned";
+"story.return" = "Return to World Map";
+"story.real_world" = "REAL WORLD CONTEXT";
+
+/* Impact Report */
+"impact.title" = "OUR COLLECTIVE IMPACT";
+"impact.headline" = "Every story matters.";
+"impact.subhead" = "These numbers reflect real-world context for each challenge TERRA explores.";
+"impact.player_stats" = "YOUR JOURNEY SO FAR";
+"impact.stories_completed" = "Stories\nCompleted";
+"impact.impact_points" = "Impact\nPoints";
+"impact.characters_unlocked" = "Characters\nUnlocked";
+"impact.real_numbers" = "THE REAL NUMBERS";
+"impact.cta_title" = "REAL ACTION, REAL WORLD";
+"impact.cta_body" = "TERRA explores real issues. These organizations are on the frontlines.";
+
+/* Settings */
+"settings.title" = "SETTINGS";
+"settings.audio" = "Audio";
+"settings.music" = "Music";
+"settings.sfx" = "Sound Effects";
+"settings.game" = "Game";
+"settings.stories_completed" = "Stories Completed";
+"settings.total_score" = "Total Impact Score";
+"settings.version" = "Version";
+"settings.data" = "Data";
+"settings.reset" = "Reset All Progress";
+"settings.reset_confirm_title" = "Reset Progress?";
+"settings.reset_confirm_body" = "This will erase all story progress and impact scores. This cannot be undone.";
+"settings.reset_confirm_cta" = "Reset";
+"settings.cancel" = "Cancel";
+
+/* Onboarding */
+"onboard.step1.headline" = "The world is not a headline.";
+"onboard.step1.body" = "It is made of people — engineers, teachers, farmers, elders — each living at the intersection of a challenge and a choice.";
+"onboard.step2.headline" = "You will walk in their shoes.";
+"onboard.step2.body" = "Each story is grounded in real research. The decisions are real. There are no easy answers, and no correct ones.";
+"onboard.step3.headline" = "Your choices have weight.";
+"onboard.step3.body" = "Every decision you make shapes the story and accumulates into your global impact score — a reflection of the kind of world you help build.";
+"onboard.step4.headline" = "Begin anywhere.";
+"onboard.step4.body" = "Six continents. Six stories. Two are open to you now. Finish one to unlock the next. The world will expand.";
+"onboard.step4.cta" = "Enter the World";
+"onboard.back" = "Back";
+"onboard.continue" = "Continue";
+
+/* About */
+"about.version" = "Version 1.0  ·  © 2026 TERRA Studio";
+"about.description" = "TERRA is a narrative experience built on the belief that understanding is the first step to change. Each story is grounded in real research, real data, and the lives of real people working on the world's most urgent challenges.\n\nThe choices you make reflect the choices humanity faces. None are easy. All matter.";
+"about.close" = "Close";

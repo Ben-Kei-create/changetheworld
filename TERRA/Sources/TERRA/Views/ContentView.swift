@@ -5,6 +5,8 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            TerraColor.spaceDeep.ignoresSafeArea()
+
             switch gameState.currentScreen {
             case .mainMenu:
                 MainMenuView()
@@ -14,21 +16,37 @@ struct ContentView: View {
                     .transition(.opacity)
             case .characterSelect:
                 CharacterSelectView()
-                    .transition(.move(edge: .trailing))
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
             case .storyChapter(let character):
                 StoryView(character: character)
-                    .transition(.move(edge: .trailing))
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
             case .impactReport:
                 ImpactReportView()
-                    .transition(.move(edge: .bottom))
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
             case .settings:
                 SettingsView()
-                    .transition(.move(edge: .bottom))
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
-        .animation(.easeInOut(duration: 0.5), value: "\(gameState.currentScreen)")
+        .animation(TerraAnimation.standard, value: gameState.currentScreen)
+        .onChange(of: gameState.currentScreen) { _, newScreen in
+            handleBGMTransition(for: newScreen)
+        }
         .sheet(isPresented: $gameState.showAbout) {
             AboutView()
+        }
+    }
+
+    private func handleBGMTransition(for screen: AppScreen) {
+        switch screen {
+        case .mainMenu:
+            SoundManager.shared.play(.mainMenu)
+        case .worldMap, .characterSelect:
+            SoundManager.shared.play(.worldMap)
+        case .storyChapter(let character):
+            SoundManager.shared.play(SoundManager.track(for: character))
+        case .impactReport, .settings:
+            break
         }
     }
 }

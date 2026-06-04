@@ -1,13 +1,28 @@
 import Foundation
 import SwiftUI
 
-enum AppScreen {
+enum AppScreen: Equatable {
     case mainMenu
     case worldMap
     case characterSelect
     case storyChapter(Character)
     case impactReport
     case settings
+
+    static func == (lhs: AppScreen, rhs: AppScreen) -> Bool {
+        switch (lhs, rhs) {
+        case (.mainMenu, .mainMenu),
+             (.worldMap, .worldMap),
+             (.characterSelect, .characterSelect),
+             (.impactReport, .impactReport),
+             (.settings, .settings):
+            return true
+        case (.storyChapter(let a), .storyChapter(let b)):
+            return a.id == b.id
+        default:
+            return false
+        }
+    }
 }
 
 final class GameState: ObservableObject {
@@ -16,8 +31,12 @@ final class GameState: ObservableObject {
     @Published var characters: [Character] = Character.all
     @Published var selectedCharacter: Character?
     @Published var showAbout = false
-    @Published var soundEnabled = true
-    @Published var musicEnabled = true
+    @Published var soundEnabled = true {
+        didSet { SoundManager.shared.sfxEnabled = soundEnabled }
+    }
+    @Published var musicEnabled = true {
+        didSet { SoundManager.shared.musicEnabled = musicEnabled }
+    }
 
     // Story progress
     @Published var completedChapterIds: Set<UUID> = []

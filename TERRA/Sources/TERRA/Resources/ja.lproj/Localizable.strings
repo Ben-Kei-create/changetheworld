@@ -1,0 +1,82 @@
+/* アプリ */
+"app.name" = "TERRA";
+"app.tagline" = "地球の物語";
+
+/* メインメニュー */
+"menu.begin" = "旅を始める";
+"menu.continue" = "続きから";
+"menu.impact" = "私たちの影響";
+"menu.settings" = "設定";
+"menu.version_footer" = "v1.0  ·  6大陸からの物語  ·  リアルデータ、リアルな変化";
+
+/* 世界地図 */
+"worldmap.title" = "ストーリーを選んでください";
+"worldmap.impact_label" = "インパクト:";
+"worldmap.hover_hint" = "ストーリーにカーソルを合わせて探索";
+"worldmap.intro.title" = "世界には、多くの物語がある。";
+"worldmap.intro.subtitle" = "すべては繋がっている。";
+"worldmap.intro.cta" = "世界を探索する";
+
+/* キャラクターパネル */
+"character.age" = "歳";
+"character.enter" = "彼らの世界へ";
+"character.locked" = "別のストーリーを完了するとアンロック";
+
+/* ストーリー */
+"story.choice_prompt" = "あなたはどうする？";
+"story.outcome_label" = "結果";
+"story.continue" = "続ける";
+"story.complete_chapter" = "チャプター完了";
+"story.exit" = "ストーリーを終了";
+"story.complete_title" = "ストーリー完了";
+"story.complete_subtitle" = "%@の物語が届いた。";
+"story.impact_label" = "あなたのインパクト";
+"story.impact_unit" = "ポイント獲得";
+"story.return" = "世界地図に戻る";
+"story.real_world" = "リアルワールド・コンテキスト";
+
+/* インパクトレポート */
+"impact.title" = "私たちの集合的インパクト";
+"impact.headline" = "すべての物語が重要だ。";
+"impact.subhead" = "これらの数字は、TERRAが探求する各課題に関連するリアルワールドのデータを反映しています。";
+"impact.player_stats" = "あなたの旅、ここまで";
+"impact.stories_completed" = "完了した\nストーリー";
+"impact.impact_points" = "インパクト\nポイント";
+"impact.characters_unlocked" = "アンロックした\nキャラクター";
+"impact.real_numbers" = "リアルな数字";
+"impact.cta_title" = "リアルな行動、リアルな世界";
+"impact.cta_body" = "TERRAは実際の問題を探求しています。これらの団体は最前線にいます。";
+
+/* 設定 */
+"settings.title" = "設定";
+"settings.audio" = "オーディオ";
+"settings.music" = "BGM";
+"settings.sfx" = "効果音";
+"settings.game" = "ゲーム";
+"settings.stories_completed" = "完了したストーリー";
+"settings.total_score" = "合計インパクトスコア";
+"settings.version" = "バージョン";
+"settings.data" = "データ";
+"settings.reset" = "すべての進行状況をリセット";
+"settings.reset_confirm_title" = "進行状況をリセット？";
+"settings.reset_confirm_body" = "すべてのストーリーの進行状況とインパクトスコアが消去されます。この操作は元に戻せません。";
+"settings.reset_confirm_cta" = "リセット";
+"settings.cancel" = "キャンセル";
+
+/* オンボーディング */
+"onboard.step1.headline" = "世界は、見出しではない。";
+"onboard.step1.body" = "それは人々でできている——エンジニア、教師、農家、長老——それぞれが課題と選択の交差点に生きている。";
+"onboard.step2.headline" = "あなたは彼らの靴を履く。";
+"onboard.step2.body" = "各ストーリーは実際のリサーチに基づいている。決断はリアルだ。簡単な答えも、正しい答えも、ない。";
+"onboard.step3.headline" = "あなたの選択には重みがある。";
+"onboard.step3.body" = "あなたの決断がストーリーを形作り、グローバルインパクトスコアに積み重なる——あなたが築こうとする世界の反映として。";
+"onboard.step4.headline" = "どこからでも始めよう。";
+"onboard.step4.body" = "6大陸。6つの物語。今は2つが開かれている。1つ完了すれば次がアンロックされる。世界は広がっていく。";
+"onboard.step4.cta" = "世界へ入る";
+"onboard.back" = "戻る";
+"onboard.continue" = "続ける";
+
+/* アバウト */
+"about.version" = "バージョン 1.0  ·  © 2026 TERRA Studio";
+"about.description" = "TERRAは、理解こそが変化への第一歩であるという信念のもとに作られたナラティブ体験です。各ストーリーは実際のリサーチ、リアルデータ、そして世界で最も緊急な課題に取り組む実在する人々の生き方に基づいています。\n\nあなたが行う選択は、人類が直面している選択を映している。どれも簡単ではない。すべてが重要だ。";
+"about.close" = "閉じる";
