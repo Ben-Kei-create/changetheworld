@@ -103,6 +103,13 @@ struct ImpactReportView: View {
                                     color: ChallengeType.isolation.color,
                                     icon: ChallengeType.isolation.icon
                                 )
+                                WorldStatCard(
+                                    value: "59%",
+                                    label: "Young People Climate-Anxious",
+                                    context: "very or extremely worried, Lancet study 2021",
+                                    color: ChallengeType.futureAnxiety.color,
+                                    icon: ChallengeType.futureAnxiety.icon
+                                )
                             }
                         }
                         .padding(.horizontal, 60)
