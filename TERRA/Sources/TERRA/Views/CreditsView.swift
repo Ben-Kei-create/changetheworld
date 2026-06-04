@@ -156,7 +156,7 @@ struct CreditsView: View {
                                     .font(TerraFont.ui(13, weight: .light))
                                     .foregroundColor(TerraColor.textSecondary)
 
-                                Text("GodManager — who watched, and once said: "誰も、まだ、遊んでいない。"")
+                                Text("GodManager — who watched, and once said: \u{201C}誰も、まだ、遊んでいない。\u{201D}")
                                     .font(TerraFont.ui(13, weight: .light))
                                     .foregroundColor(TerraColor.textSecondary)
 

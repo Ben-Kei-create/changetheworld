@@ -147,7 +147,7 @@ struct OriginQuestionView: View {
     private var readyState: some View {
         VStack(spacing: 20) {
             if !answer.isEmpty {
-                Text(""\(answer)"")
+                Text("\u{201C}\(answer)\u{201D}")
                     .font(.system(size: 22, weight: .ultraLight, design: .serif))
                     .foregroundColor(.white.opacity(0.6))
                     .italic()

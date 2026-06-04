@@ -235,7 +235,7 @@ struct PlayerReflectionView: View {
                             .foregroundColor(Color(white: 0.5))
                             .tracking(1)
 
-                        Text(""\(origin)"")
+                        Text("\u{201C}\(origin)\u{201D}")
                             .font(.system(size: 20, weight: .light, design: .serif))
                             .foregroundColor(Color(white: 0.25))
                             .italic()
