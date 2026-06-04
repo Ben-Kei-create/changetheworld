@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TERRA — Hana's Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:          #050A1A;
+      --bg-light:    #0A1228;
+      --green:       #38B870;
+      --green-soft:  #4DD484;
+      --blue:        #2E87E8;
+      --text:        rgba(255,255,255,0.92);
+      --text-mid:    rgba(255,255,255,0.60);
+      --text-dim:    rgba(255,255,255,0.30);
+      --border:      rgba(255,255,255,0.08);
+      --pink:        #f07070;
+
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans:  'Inter', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Screens ── */
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100%;
+      padding: 60px 24px;
+      animation: fadeIn 0.9s ease forwards;
+    }
+    .screen.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* ── Origin screen ── */
+    #screen-origin {
+      background: #000;
+    }
+    .origin-inner {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+    .origin-pre {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .origin-q {
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 48px;
+      line-height: 1.3;
+    }
+    .origin-input-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .origin-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 12px 0;
+      font-family: var(--serif);
+      font-size: 20px;
+      color: #fff;
+      outline: none;
+    }
+    .origin-input::placeholder {
+      color: rgba(255,255,255,0.18);
+      font-style: italic;
+    }
+    .origin-private {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.15);
+      margin-bottom: 40px;
+    }
+    .origin-actions {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-ghost-white {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+    }
+    .btn-enter {
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--serif);
+      font-style: italic;
+      display: none;
+    }
+
+    /* ── Title card ── */
+    #screen-title {
+      background: var(--bg);
+      text-align: center;
+    }
+    .story-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .story-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 60px);
+      color: var(--text);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .story-sub {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 48px;
+    }
+    .char-meta {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+      margin-bottom: 56px;
+    }
+    .data-pill {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid rgba(255,138,138,0.3);
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--pink);
+      margin-bottom: 56px;
+      max-width: 480px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── Scene ── */
+    .scene-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+    .scene-num {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+    }
+    .narrative {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .narrative p + p {
+      margin-top: 20px;
+    }
+    .choice-prompt {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .choice-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 24px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      transition: all 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .choice-btn:hover {
+      border-color: rgba(255,255,255,0.25);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+    .choice-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Outcome ── */
+    .outcome-inner {
+      max-width: 680px;
+      width: 100%;
+    }
+    .outcome-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-bottom: 24px;
+    }
+    .chosen-text {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-dim);
+      margin-bottom: 28px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(255,255,255,0.1);
+    }
+    .outcome-text {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .real-world-box {
+      background: rgba(255,138,138,0.05);
+      border: 1px solid rgba(255,138,138,0.15);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+    }
+    .rw-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .rw-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    /* ── Reflection ── */
+    #screen-reflect {
+      text-align: center;
+    }
+    .reflect-inner {
+      max-width: 600px;
+      width: 100%;
+    }
+    .reflect-q {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .reflect-context {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+    .stance-btn {
+      display: block;
+      width: 100%;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 20px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .stance-btn:hover {
+      border-color: rgba(255,255,255,0.25);
+      color: var(--text);
+    }
+    .stance-btn.selected {
+      border-color: var(--green);
+      color: var(--text);
+      background: rgba(56,184,112,0.07);
+    }
+
+    /* ── Mirror/Closing ── */
+    #screen-mirror {
+      text-align: center;
+      background: #000;
+    }
+    .mirror-inner {
+      max-width: 560px;
+    }
+    .mirror-pre {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .mirror-origin {
+      font-family: var(--serif);
+      font-size: clamp(20px, 3.5vw, 30px);
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .mirror-arrow {
+      font-size: 22px;
+      color: rgba(255,255,255,0.2);
+      margin: 20px 0;
+    }
+    .mirror-stance {
+      font-family: var(--serif);
+      font-size: clamp(18px, 3vw, 26px);
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    /* ── CTA ── */
+    #screen-cta {
+      text-align: center;
+      background: var(--bg);
+    }
+    .cta-inner {
+      max-width: 560px;
+    }
+    .terra-wordmark {
+      font-family: var(--serif);
+      font-size: 56px;
+      letter-spacing: 16px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .cta-tagline {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 40px;
+    }
+    .cta-dedication {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .cta-price-block {
+      padding: 32px 48px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 32px;
+      background: rgba(255,255,255,0.03);
+    }
+    .cta-price {
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--green-soft);
+      margin-bottom: 8px;
+    }
+    .cta-price-detail {
+      font-size: 13px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+    .cta-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+    .cta-features li::before {
+      content: "·  ";
+      color: var(--green);
+    }
+    .btn-appstore {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--green);
+      color: #000;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+    }
+    .btn-appstore:hover { background: var(--green-soft); }
+    .cta-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+
+    /* ── Shared button ── */
+    .btn-continue {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-family: var(--sans);
+      transition: all 0.2s;
+    }
+    .btn-continue:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--green);
+      transition: width 0.6s ease;
+      z-index: 100;
+    }
+
+    /* ── Separator ── */
+    .hr {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 32px auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- ──────────────────────── ORIGIN ──────────────────────── -->
+<div class="screen active" id="screen-origin">
+  <div class="origin-inner">
+    <p class="origin-pre">Before you begin</p>
+    <h1 class="origin-q">Where did you come from?</h1>
+    <div class="origin-input-wrap">
+      <input
+        class="origin-input"
+        id="origin-field"
+        type="text"
+        placeholder="A place. A person. A moment."
+        autocomplete="off"
+        maxlength="120"
+      />
+    </div>
+    <p class="origin-private">No one else will see this.</p>
+    <div class="origin-actions">
+      <button class="btn-ghost-white" onclick="skipOrigin()">Skip — I'd rather not say</button>
+      <button class="btn-enter" id="btn-enter-world" onclick="enterWorld()">Enter the world →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────── TITLE ──────────────────────── -->
+<div class="screen" id="screen-title">
+  <p class="story-label">TERRA · One of Seven Stories</p>
+  <h1 class="story-title">The Space Between Words</h1>
+  <p class="story-sub">Hana's Story</p>
+  <p class="char-meta">Hana Nakamura · 72 · Retired Nurse · Tokyo, Japan</p>
+  <div class="data-pill">
+    Chronic loneliness is now as dangerous to health as smoking 15 cigarettes a day.<br>
+    Japan became the first country to appoint a Minister of Loneliness in 2021.
+  </div>
+  <button class="btn-continue" onclick="showScene(1)">Begin her story</button>
+</div>
+
+<!-- ──────────────────────── SCENE 1 ──────────────────────── -->
+<div class="screen" id="screen-scene-1">
+  <div class="scene-inner">
+    <p class="scene-num">Scene 1 of 3 — Tokyo</p>
+    <div class="narrative" id="narrative-1"></div>
+    <p class="choice-prompt">What do you do?</p>
+    <div class="choices" id="choices-1"></div>
+  </div>
+</div>
+
+<!-- ──────────────────────── OUTCOME 1 ──────────────────────── -->
+<div class="screen" id="screen-outcome-1">
+  <div class="outcome-inner">
+    <p class="outcome-label">Outcome</p>
+    <p class="chosen-text" id="chosen-text-1"></p>
+    <div class="narrative" id="outcome-text-1"></div>
+    <div class="real-world-box">
+      <p class="rw-label">Real World Context</p>
+      <p class="rw-text">In Japan, 1 in 3 people over 65 live alone. Studies show that social isolation is linked to a 26% increase in the risk of premature death — equivalent to smoking 15 cigarettes a day. The Tokyo metropolitan government launched a "loneliness task force" in 2020 after studies found 40% of elderly residents had no meaningful social contact.</p>
+    </div>
+    <button class="btn-continue" onclick="showScene(2)">Continue →</button>
+  </div>
+</div>
+
+<!-- ──────────────────────── SCENE 2 ──────────────────────── -->
+<div class="screen" id="screen-scene-2">
+  <div class="scene-inner">
+    <p class="scene-num">Scene 2 of 3 — The community room</p>
+    <div class="narrative" id="narrative-2"></div>
+    <p class="choice-prompt">What do you do?</p>
+    <div class="choices" id="choices-2"></div>
+  </div>
+</div>
+
+<!-- ──────────────────────── OUTCOME 2 ──────────────────────── -->
+<div class="screen" id="screen-outcome-2">
+  <div class="outcome-inner">
+    <p class="outcome-label">Outcome</p>
+    <p class="chosen-text" id="chosen-text-2"></p>
+    <div class="narrative" id="outcome-text-2"></div>
+    <div class="real-world-box">
+      <p class="rw-label">Real World Context</p>
+      <p class="rw-text">Grief and loneliness are deeply intertwined. Research by Cacioppo & Patrick shows that feeling socially connected — even in silence, in the presence of another — reduces cortisol levels and activates the same neural pathways as physical safety. A space doesn't need words to be healing.</p>
+    </div>
+    <button class="btn-continue" onclick="showScene(3)">Continue →</button>
+  </div>
+</div>
+
+<!-- ──────────────────────── SCENE 3 ──────────────────────── -->
+<div class="screen" id="screen-scene-3">
+  <div class="scene-inner">
+    <p class="scene-num">Scene 3 of 3 — Two years later</p>
+    <div class="narrative" id="narrative-3"></div>
+    <p class="choice-prompt">What do you do?</p>
+    <div class="choices" id="choices-3"></div>
+  </div>
+</div>
+
+<!-- ──────────────────────── OUTCOME 3 ──────────────────────── -->
+<div class="screen" id="screen-outcome-3">
+  <div class="outcome-inner">
+    <p class="outcome-label">Outcome</p>
+    <p class="chosen-text" id="chosen-text-3"></p>
+    <div class="narrative" id="outcome-text-3"></div>
+    <div class="real-world-box">
+      <p class="rw-label">Real World Context</p>
+      <p class="rw-text">Japan's Ministry of Health estimates that 6 million people over 65 live in deep social isolation. Community-based initiatives — not apps, not programs — are consistently found to be the most effective intervention. The UK's Campaign to End Loneliness found that belonging starts with one consistent, low-stakes space.</p>
+    </div>
+    <div class="hr"></div>
+    <button class="btn-continue" onclick="showReflect()">Hana's story is complete →</button>
+  </div>
+</div>
+
+<!-- ──────────────────────── REFLECT ──────────────────────── -->
+<div class="screen" id="screen-reflect">
+  <div class="reflect-inner">
+    <p style="font-size:13px;letter-spacing:2px;color:var(--text-dim);margin-bottom:28px;text-transform:uppercase;">After Hana's story —</p>
+    <h2 class="reflect-q">What do<br>you think?</h2>
+    <p class="reflect-context">There is no right answer. This is yours alone.</p>
+    <div id="stances"></div>
+    <button class="btn-continue" id="btn-reflect-continue" style="display:none;margin-top:24px;" onclick="showMirror()">Continue →</button>
+  </div>
+</div>
+
+<!-- ──────────────────────── MIRROR ──────────────────────── -->
+<div class="screen" id="screen-mirror">
+  <div class="mirror-inner">
+    <p class="mirror-pre">At the beginning, you wrote:</p>
+    <p class="mirror-origin" id="mirror-origin-text"></p>
+    <p class="mirror-arrow">↓</p>
+    <p class="mirror-stance" id="mirror-stance-text"></p>
+    <div class="hr"></div>
+    <button class="btn-continue" onclick="showCTA()">What is TERRA? →</button>
+  </div>
+</div>
+
+<!-- ──────────────────────── CTA ──────────────────────── -->
+<div class="screen" id="screen-cta">
+  <div class="cta-inner">
+    <p class="terra-wordmark">TERRA</p>
+    <p class="cta-tagline">Stories of Our World</p>
+
+    <p class="cta-dedication">
+      This was one of seven stories.<br>
+      There are six more — across six continents, seven lives, seven sets of choices.<br>
+      Each one ends the same way: with your own voice, reflected back to you.
+    </p>
+
+    <div class="cta-price-block">
+      <p class="cta-price">$19.99</p>
+      <p class="cta-price-detail">One-time purchase · No subscription</p>
+      <ul class="cta-features">
+        <li>Seven complete stories, all sourced from real research</li>
+        <li>Your choices shape each outcome — nothing is decorative</li>
+        <li>Your origin answer echoes back at the end of the game</li>
+        <li>Zero data collection · Fully offline · macOS native</li>
+        <li>Credits cite every source, every voice, the baby</li>
+      </ul>
+    </div>
+
+    <a href="https://apps.apple.com" class="btn-appstore">Download on Mac App Store</a>
+    <p class="cta-note">macOS 14 (Sonoma) or later · Available 2026</p>
+
+    <div class="hr"></div>
+    <p style="font-size:12px;color:var(--text-dim);font-style:italic;font-family:var(--serif);line-height:1.8;margin-top:16px;">
+      "This game is dedicated to everyone<br>
+      who kept going after understanding the scale of it."
+    </p>
+  </div>
+</div>
+
+<script>
+  /* ── Story data ── */
+  const story = {
+    scenes: [
+      {
+        narrative: `Hana Nakamura retired three years ago and has not had a conversation longer than ninety seconds since. Not from her neighbors. Not from her building's automated food delivery. Not from the care-app on her phone.\n\nShe has decided to build a community room — in her own building's unused storage space. The building management has said no twice. She has written four letters. She is 72 years old, and she has more patience than the building has forms.`,
+        choices: [
+          {
+            text: "Appeal to the building's legal obligation to provide community space.",
+            outcome: "You spend six weeks researching Tokyo's community space ordinances. Your fifth letter cites three specific codes. The management approves a six-month trial. The community room opens on a Tuesday. By Thursday, it is never empty."
+          },
+          {
+            text: "Ask 10 neighbors to co-sign a petition. Start with the ones you know least.",
+            outcome: "Collecting signatures requires you to knock on 22 doors. Twelve people invite you in. You realize the building is full of people who have been waiting for someone to knock. The petition becomes less important than the knocking."
+          },
+          {
+            text: "Start without permission. Use the lobby. See what happens.",
+            outcome: "You set up a small table with tea in the lobby every Monday morning. Management asks you to stop. You ask them to come have tea and explain why. The manager stays for an hour. The table moves upstairs — into the storage room."
+          }
+        ]
+      },
+      {
+        narrative: `The community room opened. It has twelve chairs, a kettle, and a rule Hana made up herself: no phones on the table.\n\nThere is a man named Tanaka-san on the fourth floor. He is 81. He comes every Monday and sits in the same corner chair and does not speak. He has come for eleven weeks in a row. Hana has learned that his wife died last year and that he has a son in Osaka who visits twice a year and calls every Sunday for exactly seven minutes.\n\nToday, Tanaka-san brought something. He set it on the table and sat down. It is a small tin box. He has not explained it. He is looking at his hands.`,
+        choices: [
+          {
+            text: "Say nothing. Pour him tea. Let the silence hold him.",
+            outcome: "He stays for two and a half hours. He never explains the tin box. Neither do you. When he leaves, he says: 'Same time next week.' It is the first complete sentence you have heard him say. You don't know what is in the box. Some things aren't yours to know."
+          },
+          {
+            text: "Ask gently: 'Is that something you'd like to share with us?'",
+            outcome: "He opens the box. Inside are photographs — his wife, their honeymoon in Kyoto, 1971. He speaks for forty minutes. Three other neighbors stay to listen. At the end, he closes the box and says: 'I had forgotten I was still a person with a story.' You realize you have built something that cannot be measured."
+          },
+          {
+            text: "Invite him to be a co-host. Give him a role. Responsibility creates connection.",
+            outcome: "He becomes the one who makes tea. A small thing. But he arrives twenty minutes early every Monday now. He has started leaving the door propped open before the others arrive — a signal, in the language of small gestures, that someone is already waiting."
+          }
+        ]
+      },
+      {
+        narrative: `The community room is two years old. Hana is 74.\n\nA journalist from NHK wants to do a feature. "Tackling Japan's loneliness epidemic from the inside of a storage room." The story would reach millions. It might inspire other buildings, other cities, other Hanas.\n\nBut Tanaka-san pulls Hana aside before the interview. He says, quietly: "I come here because it is not on television. Because no one is watching. If you put this on television, I will not come back."\n\nHe is not asking her not to do it. He is telling her something true.`,
+        choices: [
+          {
+            text: "Do the interview. The larger impact is worth the cost.",
+            outcome: "The NHK segment airs. 847 people contact NHK asking how to start a community room in their building. A national initiative follows. Tanaka-san doesn't come back for three months. Then, quietly, he does. He sits in the corner. He doesn't say anything. But he comes."
+          },
+          {
+            text: "Decline. Ask the journalist to tell a different story — about the policy gap.",
+            outcome: "The journalist writes an opinion piece about why Japanese zoning law makes community space nearly impossible to create. It reaches the same audience. Three city council members read it. A pilot program begins. Tanaka-san never knows. The room is never on television. It stays exactly what it is."
+          },
+          {
+            text: "Ask the room — everyone in it — what they want.",
+            outcome: "You hold a vote. Twelve people. Six say yes, five say no, Tanaka-san abstains. You decline the interview. The journalist is frustrated. You tell them: 'This place only works because it belongs to the people in it.' The journalist quotes you anyway. It's enough."
+          }
+        ]
+      }
+    ]
+  };
+
+  const stanceOptions = [
+    { id: "hopeful",       text: "I feel more hopeful than before.",                msg: "Hope is not naivety.\nIt is the decision to keep going\ndespite knowing what you know." },
+    { id: "determined",    text: "I feel like I need to do something.",              msg: "The feeling that something must be done\nis the beginning of the something." },
+    { id: "overwhelmed",   text: "I feel overwhelmed by the scale of it.",           msg: "That is the right response.\nStay with it a little longer.\nThen do the next thing." },
+    { id: "connected",     text: "I feel less alone in the world.",                  msg: "That connection is real.\nHana, Tanaka-san —\nthey exist because you were willing to feel it." },
+    { id: "changed",       text: "Something in how I see things has shifted.",       msg: "That is what stories are for.\nNot to inform.\nBut to shift the angle\nfrom which you see." },
+    { id: "stillThinking", text: "I'm still thinking. I don't have words yet.",      msg: "Good.\nThe questions worth keeping\ndon't resolve quickly.\nKeep this one." }
+  ];
+
+  /* ── State ── */
+  let origin = "";
+  let selectedStance = null;
+  const chosen = {};
+
+  const TOTAL_STEPS = 11;  // origin, title, 3 scenes, 3 outcomes, reflect, mirror, cta
+  let currentStep = 0;
+
+  function setProgress(step) {
+    currentStep = step;
+    document.getElementById("progress").style.width = (step / TOTAL_STEPS * 100) + "%";
+  }
+
+  function show(id) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    const el = document.getElementById(id);
+    el.classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  /* ── Origin ── */
+  document.getElementById("origin-field").addEventListener("input", function() {
+    const btn = document.getElementById("btn-enter-world");
+    btn.style.display = this.value.trim() ? "inline-block" : "none";
+  });
+  document.getElementById("origin-field").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && this.value.trim()) enterWorld();
+  });
+
+  function enterWorld() {
+    origin = document.getElementById("origin-field").value.trim();
+    setProgress(1);
+    show("screen-title");
+  }
+  function skipOrigin() {
+    origin = "";
+    setProgress(1);
+    show("screen-title");
+  }
+
+  /* ── Scenes ── */
+  function renderNarrative(el, text) {
+    el.innerHTML = text.split("\n\n").map(p => `<p>${p}</p>`).join("");
+  }
+
+  function showScene(n) {
+    const s = story.scenes[n - 1];
+    const el = document.getElementById(`screen-scene-${n}`);
+
+    renderNarrative(document.getElementById(`narrative-${n}`), s.narrative);
+
+    const choicesDiv = document.getElementById(`choices-${n}`);
+    choicesDiv.innerHTML = "";
+    s.choices.forEach((c, i) => {
+      const btn = document.createElement("button");
+      btn.className = "choice-btn";
+      btn.innerHTML = `<span class="choice-dot"></span><span>${c.text}</span>`;
+      btn.onclick = () => selectChoice(n, i);
+      choicesDiv.appendChild(btn);
+    });
+
+    setProgress(2 + (n - 1) * 2);
+    show(`screen-scene-${n}`);
+  }
+
+  function selectChoice(scene, idx) {
+    chosen[scene] = idx;
+    const s = story.scenes[scene - 1];
+    const c = s.choices[idx];
+
+    document.getElementById(`chosen-text-${scene}`).textContent = `"${c.text}"`;
+    renderNarrative(document.getElementById(`outcome-text-${scene}`), c.outcome);
+
+    setProgress(3 + (scene - 1) * 2);
+    show(`screen-outcome-${scene}`);
+  }
+
+  /* ── Reflect ── */
+  function showReflect() {
+    const div = document.getElementById("stances");
+    div.innerHTML = "";
+    stanceOptions.forEach(s => {
+      const btn = document.createElement("button");
+      btn.className = "stance-btn";
+      btn.textContent = s.text;
+      btn.onclick = () => selectStance(s, btn);
+      div.appendChild(btn);
+    });
+    setProgress(9);
+    show("screen-reflect");
+  }
+
+  function selectStance(stance, btn) {
+    selectedStance = stance;
+    document.querySelectorAll(".stance-btn").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    document.getElementById("btn-reflect-continue").style.display = "inline-flex";
+  }
+
+  /* ── Mirror ── */
+  function showMirror() {
+    const originEl = document.getElementById("mirror-origin-text");
+    const stanceEl = document.getElementById("mirror-stance-text");
+
+    if (origin) {
+      originEl.textContent = `"${origin}"`;
+      originEl.style.display = "block";
+      document.querySelector(".mirror-pre").style.display = "block";
+      document.querySelector(".mirror-arrow").style.display = "block";
+    } else {
+      originEl.style.display = "none";
+      document.querySelector(".mirror-pre").style.display = "none";
+      document.querySelector(".mirror-arrow").style.display = "none";
+    }
+
+    stanceEl.innerHTML = selectedStance
+      ? selectedStance.msg.replace(/\n/g, "<br>")
+      : "Thank you for being here.";
+
+    setProgress(10);
+    show("screen-mirror");
+  }
+
+  /* ── CTA ── */
+  function showCTA() {
+    setProgress(11);
+    show("screen-cta");
+  }
+
+  /* ── Init ── */
+  setProgress(0);
+</script>
+</body>
+</html>
