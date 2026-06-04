@@ -8,12 +8,13 @@ struct StoryContent {
 
     static func story(for character: Character) -> StoryContent {
         switch character.challenge {
-        case .climate:   return amaraStory()
-        case .pollution: return meiLinStory()
+        case .climate:       return amaraStory()
+        case .pollution:     return meiLinStory()
         case .deforestation: return carlosStory()
         case .inequality:    return fatimaStory()
-        case .poverty:   return jamesStory()
-        case .isolation: return hanaStory()
+        case .poverty:       return jamesStory()
+        case .isolation:     return hanaStory()
+        case .futureAnxiety: return astridStory()
         }
     }
 }
@@ -499,6 +500,86 @@ private func hanaStory() -> StoryContent {
                         outcome: "You hold a vote. Twelve people. Six say yes, five say no, Tanaka-san abstains. You decline the interview. The journalist is frustrated. You tell them: 'This place only works because it belongs to the people in it.' The journalist quotes you anyway. It's enough.",
                         icon: "person.3.fill",
                         impactScore: 9
+                    )
+                ]
+            )
+        ]
+    )
+}
+
+
+// MARK: - Astrid's Story (Future Anxiety)
+
+private func astridStory() -> StoryContent {
+    StoryContent(
+        title: "Still Here",
+        scenes: [
+            StoryScene(
+                narrative: "It is 2:47 AM in Malmö, Sweden. Astrid is sixteen years old and she has not slept well in two years.\n\nShe knows the difference between the Greenland Ice Sheet and the West Antarctic Ice Sheet. She knows what 'irreversible' means in a scientific paper. She learned these things in school, because she asked.\n\nTonight she opened her laptop to study for a biology exam. Instead, she has read seventeen articles about ocean acidification. The Baltic Sea outside her window is 2.1°C warmer than when her grandmother was born.\n\nShe is not panicking. She is past panic. She is in the still, cold place after panic.\n\nShe closes the laptop. Opens it again. Closes it.\n\nHer phone lights up. Her friend Sara: 'Still awake?' Then: 'same lol'",
+                choices: [
+                    StoryChoice(
+                        text: "Don't reply. You can't explain this to Sara right now. Maybe to anyone.",
+                        outcome: "You lie in the dark for two more hours. You think about the exam. You think about the ice. You think about how it is possible to know something and still do the next ordinary thing. You don't find the answer. But somehow, by 5 AM, you fall asleep. You wake up and go to school. You take the exam. You get an A. You don't know what to make of that.",
+                        icon: "moon.fill",
+                        impactScore: 4
+                    ),
+                    StoryChoice(
+                        text: "Reply. Tell Sara exactly what you're reading and why you can't stop.",
+                        outcome: "Sara doesn't understand all of it. But she says: 'that sounds exhausting. do you want to call?' You talk until 4 AM. She doesn't know about tipping points. You explain them, slowly. By the end she says: 'okay that is genuinely terrifying. but I'm glad you told me.' You feel, for the first time in weeks, like the weight is shared. Shared weight is still weight. But it moves differently.",
+                        icon: "message.fill",
+                        impactScore: 8
+                    ),
+                    StoryChoice(
+                        text: "Close the laptop. Go to your window. Look at the water.",
+                        outcome: "The Baltic is dark. You can't see it change. You can't see the 2.1 degrees. But you know it's there. You stand at the window for a long time. Then something shifts — not hope exactly. More like: this is real, and I am real, and both things can be true at the same time. You go back to bed. You sleep.",
+                        icon: "water.waves",
+                        impactScore: 7
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "Three weeks later. Biology class.\n\nThe teacher, Mr. Eriksson, is 58. He has been teaching biology for 29 years. He is explaining photosynthesis. He is good at it.\n\nAstrid raises her hand. She asks whether the class can discuss what ocean acidification does to photosynthesis in marine phytoplankton, since phytoplankton produces half the world's oxygen.\n\nMr. Eriksson says: 'That's a bit beyond the curriculum, Astrid.'\n\nThe class moves on.\n\nAfter class, a boy named Felix catches up with her in the hall. He says: 'I looked it up. You're right. It's actually really bad.' Then he says: 'Why don't you start a club or something?'\n\nAstrid has never started anything.",
+                choices: [
+                    StoryChoice(
+                        text: "Say no. You're exhausted. A club won't change what's happening.",
+                        outcome: "You go home. You study. A month passes. Felix starts the club himself — badly, without the knowledge you have. It meets three times and falls apart. One of the six students who showed up, a girl named Leila, keeps looking things up on her own. Astrid and Leila meet again later, in a different context, and something begins.",
+                        icon: "xmark.circle.fill",
+                        impactScore: 3
+                    ),
+                    StoryChoice(
+                        text: "Say yes — but only if it's about real science, not just feelings.",
+                        outcome: "The club starts with seven people, including Felix and Leila. You run it like a seminar. No slogans. Only papers, data, maps. Twelve weeks in, a local newspaper hears about it and runs a small piece. Forty more students ask to join. The curriculum doesn't change. But something else does: in that room, every Thursday, nobody tells you this is 'beyond the curriculum.'",
+                        icon: "person.3.fill",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Ask to speak to Mr. Eriksson after school first. Tell him what you know.",
+                        outcome: "He listens for twenty minutes. He says he hadn't updated his own reading in four years. He doesn't apologize. But the next week, he adds a section to the class. It's small. Two pages. But he wrote them himself, the night before, from the papers you recommended. He's been teaching for 29 years. He still learned something. That matters.",
+                        icon: "person.fill",
+                        impactScore: 10
+                    )
+                ]
+            ),
+            StoryScene(
+                narrative: "Astrid is seventeen now.\n\nShe has been invited to speak at a youth climate conference in Stockholm. One hundred students. She will have eight minutes.\n\nShe sits at her desk with a blank document. She has written and deleted four speeches. The first was full of statistics — she knows all of them by heart. The second was about hope — it felt false. The third was angry — it felt true but incomplete. The fourth was about the Baltic Sea outside her window. She deleted that one too.\n\nIt's 11 PM. The conference is tomorrow.\n\nShe thinks about something her grandmother Linda told her once, on the phone, when Astrid said she didn't know how to keep going.\n\nLinda had said: 'I don't either. I just do the next thing. And then the next one.'\n\nAstrid opens a new document.\n\nShe starts typing.",
+                choices: [
+                    StoryChoice(
+                        text: "Write the speech about what it actually feels like. 2:47 AM. The laptop. The water. The weight of knowing.",
+                        outcome: "You give that speech. You don't use a single statistic. You describe the feeling of knowing something that changes how you see everything, and still having to go to school, still taking the exam, still getting the A, still not knowing what to make of it. When you finish, the room is quiet for a long moment. Then a girl in the second row starts crying. Then several others. Then applause. After, twelve people come up to you individually and say: 'I thought I was the only one who felt like that.'",
+                        icon: "heart.fill",
+                        impactScore: 10
+                    ),
+                    StoryChoice(
+                        text: "Write about the club. About Felix. About what happened when knowledge was shared instead of carried alone.",
+                        outcome: "It's a practical speech. You describe what works: small groups, real data, one Thursday at a time. Three teachers in the audience take notes. Two of them start similar programs in their schools within the year. You never meet their students. But the students exist.",
+                        icon: "person.3.sequence.fill",
+                        impactScore: 9
+                    ),
+                    StoryChoice(
+                        text: "Write honestly that you don't know how to end a speech about this. And deliver that.",
+                        outcome: "'I have eight minutes and I've written four speeches and deleted all of them,' you begin. 'So here is what I actually know: the Baltic Sea is 2.1 degrees warmer than when my grandmother was born. I love the Baltic Sea. I don't know how to end this speech, because I don't know how to end what's happening. But I came here. You came here. Maybe that's a kind of answer.' You sit down. It is the shortest speech of the day. It is the one people remember.",
+                        icon: "text.bubble.fill",
+                        impactScore: 10
                     )
                 ]
             )

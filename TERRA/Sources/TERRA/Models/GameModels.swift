@@ -10,26 +10,29 @@ enum ChallengeType: String, CaseIterable, Codable {
     case isolation = "Human Connection"
     case pollution = "Ocean Pollution"
     case deforestation = "Deforestation"
+    case futureAnxiety = "Future & Fear"
 
     var icon: String {
         switch self {
-        case .climate: return "thermometer.sun.fill"
-        case .poverty: return "house.fill"
-        case .inequality: return "person.3.fill"
-        case .isolation: return "heart.fill"
-        case .pollution: return "drop.fill"
+        case .climate:       return "thermometer.sun.fill"
+        case .poverty:       return "house.fill"
+        case .inequality:    return "person.3.fill"
+        case .isolation:     return "heart.fill"
+        case .pollution:     return "drop.fill"
         case .deforestation: return "leaf.fill"
+        case .futureAnxiety: return "eye.fill"
         }
     }
 
     var color: Color {
         switch self {
-        case .climate: return Color(red: 1.0, green: 0.45, blue: 0.2)
-        case .poverty: return Color(red: 0.9, green: 0.7, blue: 0.1)
-        case .inequality: return Color(red: 0.6, green: 0.3, blue: 0.8)
-        case .isolation: return Color(red: 0.95, green: 0.3, blue: 0.5)
-        case .pollution: return Color(red: 0.1, green: 0.5, blue: 0.9)
-        case .deforestation: return Color(red: 0.2, green: 0.7, blue: 0.3)
+        case .climate:       return Color(red: 1.0,  green: 0.45, blue: 0.2)
+        case .poverty:       return Color(red: 0.9,  green: 0.7,  blue: 0.1)
+        case .inequality:    return Color(red: 0.6,  green: 0.3,  blue: 0.8)
+        case .isolation:     return Color(red: 0.95, green: 0.3,  blue: 0.5)
+        case .pollution:     return Color(red: 0.1,  green: 0.5,  blue: 0.9)
+        case .deforestation: return Color(red: 0.2,  green: 0.7,  blue: 0.3)
+        case .futureAnxiety: return Color(red: 0.55, green: 0.82, blue: 0.98)
         }
     }
 }
@@ -127,6 +130,19 @@ struct Character: Identifiable, Codable {
             avatarSymbol: "heart.fill",
             coordinates: WorldCoordinate(lat: 35.7, lon: 139.7),
             isUnlocked: false
+        ),
+        Character(
+            id: UUID(),
+            name: "Astrid Lindqvist",
+            age: 16,
+            origin: "Sweden",
+            continent: .europe,
+            occupation: "Student",
+            challenge: .futureAnxiety,
+            backstory: "Astrid stopped sleeping well two years ago. She understands tipping points, feedback loops, and what 2°C actually means. She loves the Baltic Sea. She is watching it change. She has not stopped going to school. She has not stopped hoping. She doesn't know why.",
+            avatarSymbol: "eye.fill",
+            coordinates: WorldCoordinate(lat: 55.6, lon: 13.0),
+            isUnlocked: false
         )
     ]
 }
@@ -144,6 +160,10 @@ enum Continent: String, CaseIterable, Codable {
     case southAmerica = "South America"
     case oceania = "Oceania"
 }
+
+// MARK: - The Baby
+// Presence in the room. No data. No model. No code.
+// She doesn't need a struct. She's already in the building.
 
 // MARK: - Story Chapter
 

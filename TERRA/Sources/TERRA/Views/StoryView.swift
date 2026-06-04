@@ -297,6 +297,12 @@ struct SceneIllustration: View {
                 ["hammer.fill", "paintbrush.fill", "person.3.fill"],
                 ["heart.fill", "music.note", "sun.max.fill"]
             ]
+        case .futureAnxiety:
+            return [
+                ["moon.fill", "laptopcomputer", "water.waves"],
+                ["person.3.fill", "book.fill", "magnifyingglass"],
+                ["mic.fill", "globe.europe.africa.fill", "star.fill"]
+            ]
         }
     }
 }
@@ -515,6 +521,8 @@ struct RealWorldDataCard: View {
             return "Urban food forests can produce up to 6x more food per square meter than industrial agriculture, while rebuilding community bonds and local ecosystems."
         case .isolation:
             return "Chronic loneliness is now as dangerous to health as smoking 15 cigarettes a day. Japan became the first country to appoint a Minister of Loneliness in 2021."
+        case .futureAnxiety:
+            return "A 2021 global survey of 10,000 young people found 59% were very or extremely worried about climate change. 45% said their feelings about it affected their daily life. The term 'eco-anxiety' was formally recognized by the American Psychological Association in 2017. The Baltic Sea has warmed faster than almost any other body of water on Earth."
         }
     }
 }

@@ -16,6 +16,7 @@ enum BGMTrack: String {
     case fatima      = "bgm_fatima"         // Oud + ambient drone
     case james       = "bgm_james"          // Urban acoustic guitar + distant city
     case hana        = "bgm_hana"           // Sparse piano, minimalist
+    case astrid      = "bgm_astrid"         // Nordic ambient, open water, quiet dread becoming resolve
     case completion  = "bgm_completion"     // Uplifting, full orchestral swell
 }
 
@@ -164,6 +165,7 @@ final class SoundManager: ObservableObject {
         case .inequality:    return .fatima
         case .poverty:       return .james
         case .isolation:     return .hana
+        case .futureAnxiety: return .astrid
         }
     }
 }
